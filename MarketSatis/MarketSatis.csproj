@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8154D249-5885-4F04-8894-1A0AD2CC488F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MarketSatis</RootNamespace>
+    <AssemblyName>MarketSatis</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDefo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDefo.Designer.cs">
+      <DependentUpon>FormDefo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormIade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormIade.Designer.cs">
+      <DependentUpon>FormIade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPersonelCikar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPersonelCikar.Designer.cs">
+      <DependentUpon>FormPersonelCikar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPersonelEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPersonelEkle.Designer.cs">
+      <DependentUpon>FormPersonelEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPersonelGoruntule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPersonelGoruntule.Designer.cs">
+      <DependentUpon>FormPersonelGoruntule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPersonelGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPersonelGuncelle.Designer.cs">
+      <DependentUpon>FormPersonelGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSatis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSatis.Designer.cs">
+      <DependentUpon>FormSatis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUrunEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUrunEkle.Designer.cs">
+      <DependentUpon>FormUrunEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHakkinda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHakkinda.Designer.cs">
+      <DependentUpon>FormHakkinda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPersonel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPersonel.Designer.cs">
+      <DependentUpon>FormPersonel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProfil.Designer.cs">
+      <DependentUpon>FormProfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSifreDegistir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSifreDegistir.Designer.cs">
+      <DependentUpon>FormSifreDegistir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUrunGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUrunGuncelle.Designer.cs">
+      <DependentUpon>FormUrunGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormYonetici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormYonetici.Designer.cs">
+      <DependentUpon>FormYonetici.cs</DependentUpon>
+    </Compile>
+    <Compile Include="market_veritabaniDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>market_veritabaniDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TemelKurallar.cs" />
+    <Compile Include="TemelVeri.cs" />
+    <Compile Include="VeriTabani\Kodlar\ClassVeriTabaniTemel.cs" />
+    <Compile Include="VeriTabani\Kodlar\InterfaceVeriTabaniTemel.cs" />
+    <Compile Include="VeriTabani\Kodlar\SorguIslem.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDefo.resx">
+      <DependentUpon>FormDefo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormIade.resx">
+      <DependentUpon>FormIade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPersonelCikar.resx">
+      <DependentUpon>FormPersonelCikar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPersonelEkle.resx">
+      <DependentUpon>FormPersonelEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPersonelGoruntule.resx">
+      <DependentUpon>FormPersonelGoruntule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPersonelGuncelle.resx">
+      <DependentUpon>FormPersonelGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSatis.resx">
+      <DependentUpon>FormSatis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUrunEkle.resx">
+      <DependentUpon>FormUrunEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHakkinda.resx">
+      <DependentUpon>FormHakkinda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPersonel.resx">
+      <DependentUpon>FormPersonel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProfil.resx">
+      <DependentUpon>FormProfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSifreDegistir.resx">
+      <DependentUpon>FormSifreDegistir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUrunGuncelle.resx">
+      <DependentUpon>FormUrunGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormYonetici.resx">
+      <DependentUpon>FormYonetici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="market_veritabaniDataSet.xsc">
+      <DependentUpon>market_veritabaniDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="market_veritabaniDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>market_veritabaniDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="market_veritabaniDataSet.xss">
+      <DependentUpon>market_veritabaniDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\selcuk_universitesi_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="VeriTabani\Veritabani\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
