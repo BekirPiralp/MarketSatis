@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using MarketSatis.HataTanimlamalari;
 
 namespace MarketSatis.VeriTabani.Kodlar
 {
@@ -19,7 +20,7 @@ namespace MarketSatis.VeriTabani.Kodlar
             
             this.veriTabani = new OleDbConnection();
             this.veriTabaniKomut = new OleDbCommand();
-            //this.veriTabaniOkuyucu = new OleDbDataReader();
+            //this.veriTabaniOkuyucu =veriTabaniKomut.ExecuteReader();
         }
         private bool komutIsle()
         {
@@ -218,12 +219,17 @@ namespace MarketSatis.VeriTabani.Kodlar
             try
             {
                 baglan();
-                obj = this.veriTabaniKomut.ExecuteScalar();
+                obj = this.veriTabaniKomut.ExecuteScalar()!=null? this.veriTabaniKomut.ExecuteScalar():throw new ClassBosVeri("veri gelmedi") ;
+            }
+            catch (NullReferenceException hata) 
+            {
+                //MessageBox.Show(hata.ToString(), "Hata - Dikkat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return (object)"";
             }
             catch (Exception hata)
             {
-                MessageBox.Show(hata.ToString(), "Hata - Dikkat", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+               // MessageBox.Show(hata.ToString(), "Hata - Dikkat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return (object)"";
             }
             finally
             {
@@ -242,6 +248,29 @@ namespace MarketSatis.VeriTabani.Kodlar
         {
             komutAl(komut: sorguKomut,veriTabani:veriTabani);
             return tekAlanlikVeriDondurenSorguKomutlarIsle();
+        }
+
+        //Sorgu işlem adres için tasarlandı ileriye dönük ayarlana bilir
+        public object adresAl (string sorguTc)
+        { //bağlantı bilgileri Sorguİslem de tanımlı ve ilk açılımda sınıfın kurucu metodun da eklenmiştir.
+            String adres = "";
+            komutAl ("Select a.tarif,i.ad as 'İl',l.ad as 'İlçe',l.kod as 'Posta kodu',ü.ad as 'Ülke' "+ 
+"from Adres as a, İl as i, İlçe as l, Ülke as ü, Personel as p "+
+"Where a.il = i.id and a.ilçe = l.id and a.ülke = ü.id and a.personel = p.id and p.tc = "+sorguTc.Trim()+
+" order by p.id, a.id desc ");
+            baglan();
+            this.veriTabaniOkuyucu = veriTabaniKomut.ExecuteReader();
+            while (this.veriTabaniOkuyucu.Read())
+            {
+                adres += veriTabaniOkuyucu["tarif"].ToString() +" ";
+                adres += veriTabaniOkuyucu["İl"].ToString() + " ";
+                adres += veriTabaniOkuyucu["İlçe"].ToString() + " ";
+                adres += veriTabaniOkuyucu["Posta kodu"].ToString() + " ";
+                adres += veriTabaniOkuyucu["Ülke"].ToString() + "\n";
+            }
+            baglantiKes();
+
+            return adres;
         }
     }
 }

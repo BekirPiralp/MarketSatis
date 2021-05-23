@@ -29,6 +29,7 @@ namespace MarketSatis
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBoxUrun = new System.Windows.Forms.PictureBox();
             this.labelTarihSaat = new System.Windows.Forms.Label();
             this.buttoniptal = new System.Windows.Forms.Button();
@@ -54,6 +55,7 @@ namespace MarketSatis
             this.labelPersonelisim = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUrun)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdet)).BeginInit();
             this.SuspendLayout();
@@ -309,6 +311,12 @@ namespace MarketSatis
             this.label1.TabIndex = 19;
             this.label1.Text = "Personel isim:";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Enabled = true;
+
+            // 
             // FormSatis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,5 +384,6 @@ namespace MarketSatis
         private System.Windows.Forms.Label labelPersonelisim;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

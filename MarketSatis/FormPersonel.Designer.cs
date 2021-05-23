@@ -29,6 +29,7 @@ namespace MarketSatis
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.iadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ürünİşlemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +66,7 @@ namespace MarketSatis
             this.label10 = new System.Windows.Forms.Label();
             this.labelTarihSaat = new System.Windows.Forms.Label();
             this.pictureBoxUrun = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUrun)).BeginInit();
@@ -412,6 +414,11 @@ namespace MarketSatis
             this.pictureBoxUrun.TabIndex = 18;
             this.pictureBoxUrun.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FormPersonel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -494,5 +501,6 @@ namespace MarketSatis
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label labelTarihSaat;
         private System.Windows.Forms.PictureBox pictureBoxUrun;
+        private System.Windows.Forms.Timer timer1;
     }
 }

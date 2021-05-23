@@ -23,18 +23,26 @@ namespace MarketSatis
         }
         public FormSatis()
         {
+           
             InitializeComponent();
         }
         public FormSatis(String TcAl)
         {
             TcSet(TcAl);
+            
             InitializeComponent();
+          
         }
 
 
         private void textBoxBarkod_KeyPress(object sender, KeyPressEventArgs e)
         {
             TemelKurallar.textBox_KeyPress(sender,e);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            labelTarihSaat.Text=DateTime.Now.ToString();
         }
     }
 }

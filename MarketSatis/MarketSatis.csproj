@@ -139,6 +139,7 @@
     <Compile Include="FormYonetici.Designer.cs">
       <DependentUpon>FormYonetici.cs</DependentUpon>
     </Compile>
+    <Compile Include="HataTanimlamalari\ClassBosVeri.cs" />
     <Compile Include="market_veritabaniDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -234,6 +235,7 @@
     <None Include="Resources\selcuk_universitesi_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\Resim\" />
     <Folder Include="VeriTabani\Veritabani\" />
   </ItemGroup>
   <ItemGroup>

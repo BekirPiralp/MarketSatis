@@ -15,7 +15,9 @@ namespace MarketSatis
         TemelVeri temelVeri;
         public FormPersonel()
         {
+            timer1.Enabled = true;
             InitializeComponent();
+           
         }
 
         public FormPersonel(TemelVeri temelVeri)
@@ -90,6 +92,11 @@ namespace MarketSatis
         private void textBoxBarkod_KeyPress(object sender, KeyPressEventArgs e)
         {
             TemelKurallar.textBox_KeyPress(sender, e);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            labelTarihSaat.Text = DateTime.Now.ToString();
         }
     }
 }

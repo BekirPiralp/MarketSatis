@@ -105,7 +105,7 @@ namespace MarketSatis
         {
             String sifre = "";
             String tc = "";
-            TemelVeri temelVeri = new TemelVeri();
+            TemelVeri temelVeri;
             if (this.textBoxTc.Text.Length != 11 || this.textBoxTc.Text == "")
             {
                 MessageBox.Show("TC kimlik numarası 11 haneli olmalıdır.", "Dikkat",
@@ -124,7 +124,11 @@ namespace MarketSatis
 
                 if (sorgu.girisSifre(sifre))
                 {
-                    if (sorgu.girisYetki() && !sorgu.silDurum())
+                    // temel veri alma ve oluşturma
+                    temelVeri = sorgu.temelVeriAl(tc);
+
+
+                    if (temelVeri.Yetki && !sorgu.silDurum())
                     {
                         formYonetici = new FormYonetici(temelVeri);
                         formYonetici.ShowDialog();
