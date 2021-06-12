@@ -63,9 +63,29 @@ namespace MarketSatis.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap boskullanici {
+            get {
+                object obj = ResourceManager.GetObject("boskullanici", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap selcuk_universitesi_logo {
             get {
                 object obj = ResourceManager.GetObject("selcuk_universitesi_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap urun {
+            get {
+                object obj = ResourceManager.GetObject("urun", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

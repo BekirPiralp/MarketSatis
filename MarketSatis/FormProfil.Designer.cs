@@ -33,8 +33,6 @@ namespace MarketSatis
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -43,10 +41,12 @@ namespace MarketSatis
             this.labelAd = new System.Windows.Forms.Label();
             this.labelSoyad = new System.Windows.Forms.Label();
             this.labelCinsiyet = new System.Windows.Forms.Label();
-            this.labelTelefon = new System.Windows.Forms.Label();
-            this.labelEmail = new System.Windows.Forms.Label();
             this.labelYetki = new System.Windows.Forms.Label();
+            this.labelAdres = new System.Windows.Forms.Label();
+            this.labelEkBilgi = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -88,26 +88,6 @@ namespace MarketSatis
             this.label3.TabIndex = 1;
             this.label3.Text = "Soyad:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(188, 119);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Telefon:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(201, 145);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Email:";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -123,6 +103,7 @@ namespace MarketSatis
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Controls.Add(this.labelAdres);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.Location = new System.Drawing.Point(13, 193);
@@ -137,6 +118,7 @@ namespace MarketSatis
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox2.Controls.Add(this.labelEkBilgi);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox2.Location = new System.Drawing.Point(13, 299);
@@ -150,7 +132,7 @@ namespace MarketSatis
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(418, 12);
+            this.label7.Location = new System.Drawing.Point(204, 123);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 1;
@@ -200,46 +182,46 @@ namespace MarketSatis
             this.labelCinsiyet.Text = "Deneme";
             this.labelCinsiyet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelTelefon
-            // 
-            this.labelTelefon.AutoSize = true;
-            this.labelTelefon.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelTelefon.Location = new System.Drawing.Point(253, 119);
-            this.labelTelefon.Name = "labelTelefon";
-            this.labelTelefon.Size = new System.Drawing.Size(97, 13);
-            this.labelTelefon.TabIndex = 3;
-            this.labelTelefon.Text = "+90 555 555 55 55";
-            this.labelTelefon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelEmail
-            // 
-            this.labelEmail.AutoSize = true;
-            this.labelEmail.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelEmail.Location = new System.Drawing.Point(248, 145);
-            this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(121, 13);
-            this.labelEmail.TabIndex = 3;
-            this.labelEmail.Text = "Deneme@Deneme.com";
-            this.labelEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // labelYetki
             // 
             this.labelYetki.AutoSize = true;
             this.labelYetki.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelYetki.Location = new System.Drawing.Point(464, 12);
+            this.labelYetki.Location = new System.Drawing.Point(250, 123);
             this.labelYetki.Name = "labelYetki";
             this.labelYetki.Size = new System.Drawing.Size(48, 13);
             this.labelYetki.TabIndex = 3;
             this.labelYetki.Text = "Personel";
             this.labelYetki.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // labelAdres
+            // 
+            this.labelAdres.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelAdres.Font = new System.Drawing.Font("Lucida Calligraphy", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAdres.Location = new System.Drawing.Point(6, 16);
+            this.labelAdres.Name = "labelAdres";
+            this.labelAdres.Size = new System.Drawing.Size(506, 73);
+            this.labelAdres.TabIndex = 0;
+            this.labelAdres.Text = "label4";
+            // 
+            // labelEkBilgi
+            // 
+            this.labelEkBilgi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelEkBilgi.Font = new System.Drawing.Font("Lucida Calligraphy", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEkBilgi.Location = new System.Drawing.Point(6, 16);
+            this.labelEkBilgi.Name = "labelEkBilgi";
+            this.labelEkBilgi.Size = new System.Drawing.Size(506, 73);
+            this.labelEkBilgi.TabIndex = 0;
+            this.labelEkBilgi.Text = "label4";
+            // 
             // FormProfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(543, 414);
-            this.Controls.Add(this.labelEmail);
-            this.Controls.Add(this.labelTelefon);
             this.Controls.Add(this.labelCinsiyet);
             this.Controls.Add(this.labelSoyad);
             this.Controls.Add(this.labelAd);
@@ -248,8 +230,6 @@ namespace MarketSatis
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label7);
@@ -261,6 +241,8 @@ namespace MarketSatis
             this.ShowIcon = false;
             this.Text = "Profil";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,8 +254,6 @@ namespace MarketSatis
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -282,8 +262,8 @@ namespace MarketSatis
         private System.Windows.Forms.Label labelAd;
         private System.Windows.Forms.Label labelSoyad;
         private System.Windows.Forms.Label labelCinsiyet;
-        private System.Windows.Forms.Label labelTelefon;
-        private System.Windows.Forms.Label labelEmail;
         private System.Windows.Forms.Label labelYetki;
+        private System.Windows.Forms.Label labelAdres;
+        private System.Windows.Forms.Label labelEkBilgi;
     }
 }

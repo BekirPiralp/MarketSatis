@@ -21,6 +21,7 @@ namespace MarketSatis
         {
             InitializeComponent();
             labelHakinda.Text = hakkinda;
+            
         }
 
 

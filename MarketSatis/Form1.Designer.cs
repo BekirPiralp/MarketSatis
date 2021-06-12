@@ -100,7 +100,7 @@ namespace MarketSatis
             this.checkBox1.Location = new System.Drawing.Point(366, 67);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(113, 21);
-            this.checkBox1.TabIndex = 0;
+            this.checkBox1.TabIndex = 4;
             this.checkBox1.Text = "Şifreyi Göster";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -110,12 +110,13 @@ namespace MarketSatis
             this.buttonGiris.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonGiris.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonGiris.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonGiris.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonGiris.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonGiris.Location = new System.Drawing.Point(187, 94);
             this.buttonGiris.Name = "buttonGiris";
             this.buttonGiris.Size = new System.Drawing.Size(150, 23);
-            this.buttonGiris.TabIndex = 2;
+            this.buttonGiris.TabIndex = 5;
             this.buttonGiris.Text = "Giriş";
             this.buttonGiris.UseVisualStyleBackColor = false;
             this.buttonGiris.Click += new System.EventHandler(this.buttonGiris_Click);
@@ -127,7 +128,7 @@ namespace MarketSatis
             this.textBoxSifre.Location = new System.Drawing.Point(71, 65);
             this.textBoxSifre.Name = "textBoxSifre";
             this.textBoxSifre.Size = new System.Drawing.Size(285, 23);
-            this.textBoxSifre.TabIndex = 1;
+            this.textBoxSifre.TabIndex = 3;
             this.textBoxSifre.Text = "Şifrenizi giriniz";
             this.textBoxSifre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxSifre.Click += new System.EventHandler(this.sifreHover);
@@ -141,7 +142,7 @@ namespace MarketSatis
             this.textBoxTc.Location = new System.Drawing.Point(71, 22);
             this.textBoxTc.Name = "textBoxTc";
             this.textBoxTc.Size = new System.Drawing.Size(408, 23);
-            this.textBoxTc.TabIndex = 1;
+            this.textBoxTc.TabIndex = 2;
             this.textBoxTc.Text = "Lütfen Tc Kimlik numaranızı giriniz";
             this.textBoxTc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxTc.Enter += new System.EventHandler(this.tcHover);
@@ -153,16 +154,18 @@ namespace MarketSatis
             this.buttonHakkinda.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonHakkinda.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonHakkinda.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonHakkinda.Location = new System.Drawing.Point(226, 201);
             this.buttonHakkinda.Name = "buttonHakkinda";
             this.buttonHakkinda.Size = new System.Drawing.Size(75, 23);
-            this.buttonHakkinda.TabIndex = 3;
+            this.buttonHakkinda.TabIndex = 1;
             this.buttonHakkinda.Text = "Hakkında";
             this.buttonHakkinda.UseVisualStyleBackColor = false;
             this.buttonHakkinda.Click += new System.EventHandler(this.buttonHakkinda_Click);
             // 
             // Form1
             // 
+            this.AcceptButton = this.buttonGiris;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(509, 236);

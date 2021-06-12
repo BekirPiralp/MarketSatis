@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MarketSatis.VeriTabani.Kodlar;
+using MarketSatis.VeriTabani.Veritabani;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,25 +14,27 @@ namespace MarketSatis
 {
     public partial class FormIade : Form
     {
-        private String Tc; 
+        TemelVeri temelVeri;
+        SorguUrun sorguUrun = new SorguUrun();
+        SorguFis sorguFis = new SorguFis();
+        SorguSatis sorguSatis = new SorguSatis();
+        SorguIade sorguIade = new SorguIade();
+        Satis satis;
+        Fis fis;
+        Urun urun;
+        Iade iade;
+       
+        bool textBoxBarkodKntrl = false;
+
         public FormIade()
         {
             InitializeComponent();
         }
 
-        public FormIade(String TcAl)
+        public FormIade(TemelVeri temelVeri)
         {
-            TcSet(TcAl);
+            this.temelVeri = temelVeri;
             InitializeComponent();
-        }
-
-        public void TcSet(String Tc)
-        {
-            this.Tc = Tc;
-        }
-        public String TcGet()
-        {
-            return Tc;
         }
 
         private void buttonIptal_Click(object sender, EventArgs e)
@@ -44,12 +48,39 @@ namespace MarketSatis
             dialogResult = MessageBox.Show("Emin misiniz?", "Dikkat!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.OK)
             {
+                if (numericUpDownAdet.Value != 0 && this.textBoxFisNo.Text!="")
+                {
+                    urun = sorguUrun.Getir(this.textBoxBarkod.Text.Trim());
+                    fis = sorguFis.Getir(int.Parse(this.textBoxFisNo.Text));
+                    if(urun != null && fis != null)
+                    {
+                        satis = sorguSatis.Getir(fis: fis.id, urun: urun.id);
+                        iade = new Iade();
+                        iade.fis = fis.id;
+                        iade.satis = satis.id;
+                        iade.personel = temelVeri.Id;
+                        iade.aciklama = "Adet: " + ((int)numericUpDownAdet.Value).ToString() +
+                            "\n" + this.textBoxAciklama.Text;
+                        if (!sorguIade.Ekle(iade))
+                        {
+                            MessageBox.Show("Kayıt esnasında bir hata ile karşılaşıldı.\n Lütfen tekrar deneyiniz.",
+                                "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Aradığınız fiş veya ürün bulunamadı.\n"+
+                            "Lütfen bilgileri kontrol edip tekrar deneyiniz.","Dikkat",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("0 adet olan ürün iade edilemez");
+                }
 
             }
-            else if (dialogResult == DialogResult.Cancel)
-            {
-
-            }
+            
         }
 
         private void textBoxFisNo_KeyPress(object sender, KeyPressEventArgs e)

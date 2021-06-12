@@ -88,6 +88,7 @@ namespace MarketSatis
             this.buttoniptal.TabIndex = 41;
             this.buttoniptal.Text = "Satış iptal";
             this.buttoniptal.UseVisualStyleBackColor = true;
+            this.buttoniptal.Click += new System.EventHandler(this.buttoniptal_Click);
             // 
             // buttonSat
             // 
@@ -98,6 +99,7 @@ namespace MarketSatis
             this.buttonSat.TabIndex = 40;
             this.buttonSat.Text = "Satış";
             this.buttonSat.UseVisualStyleBackColor = true;
+            this.buttonSat.Click += new System.EventHandler(this.buttonSat_Click);
             // 
             // buttonCikar
             // 
@@ -107,6 +109,7 @@ namespace MarketSatis
             this.buttonCikar.TabIndex = 39;
             this.buttonCikar.Text = "Fişten Çikar";
             this.buttonCikar.UseVisualStyleBackColor = true;
+            this.buttonCikar.Click += new System.EventHandler(this.buttonCikar_Click);
             // 
             // buttonEkle
             // 
@@ -116,6 +119,7 @@ namespace MarketSatis
             this.buttonEkle.TabIndex = 38;
             this.buttonEkle.Text = "Fişe Ekle";
             this.buttonEkle.UseVisualStyleBackColor = true;
+            this.buttonEkle.Click += new System.EventHandler(this.buttonEkle_Click);
             // 
             // label11
             // 
@@ -248,7 +252,9 @@ namespace MarketSatis
             this.textBoxBarkod.TabIndex = 25;
             this.textBoxBarkod.Text = "101010";
             this.textBoxBarkod.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxBarkod.TextChanged += new System.EventHandler(this.textBoxBarkod_TextChanged);
             this.textBoxBarkod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxBarkod_KeyPress);
+            this.textBoxBarkod.MouseHover += new System.EventHandler(this.textBoxBarkod_MouseHover);
             // 
             // labelToplamFiyat
             // 
@@ -313,9 +319,8 @@ namespace MarketSatis
             // 
             // timer1
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             this.timer1.Enabled = true;
-
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FormSatis
             // 

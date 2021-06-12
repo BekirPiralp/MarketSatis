@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MarketSatis.VeriTabani.Kodlar;
+using MarketSatis.VeriTabani.Veritabani;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,25 +14,23 @@ namespace MarketSatis
 {
     public partial class FormDefo : Form
     {
+        TemelVeri temelVeri;
+        SorguUrun sorguUrun = new SorguUrun();
+        SorguDefo sorguDefo = new SorguDefo();
+        Urun urun;
+        Defo defo;
+        bool textBoxBarkodKntrl = false;
 
-        private String Tc;
-        public String TcGet()
-        {
-            return Tc;
-        }
-        public void TcSet(String value)
-        {
-            Tc = value;
-        }
 
         public FormDefo()
         {
             InitializeComponent();
         }
-        public FormDefo(String al)
+        public FormDefo(TemelVeri temelVeri)
         {
-            TcSet(al);
+            this.temelVeri = temelVeri;
             InitializeComponent();
+            
         }
                
 
@@ -42,20 +42,61 @@ namespace MarketSatis
         private void buttonKaydet_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;
-            dialogResult=MessageBox.Show("Emin misiniz?", "Dikkat!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if(dialogResult== DialogResult.OK)
+            if(this.numericUpDownAdet.Value != 0 && urun != null&&urun.adet>= (int)this.numericUpDownAdet.Value)
             {
-
-            }else if (dialogResult == DialogResult.Cancel)
-            {
-
+                dialogResult = MessageBox.Show("Emin misiniz?", "Dikkat!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.OK)
+                {
+                    defo = new Defo();
+                    defo.personel = temelVeri.Id;
+                    defo.urun = urun.id;
+                    defo.adet = (int)this.numericUpDownAdet.Value;
+                    defo.aciklama = this.textBoxAcıklama.Text;
+                    if (sorguDefo.Ekle(defo))
+                    {
+                        Urun yeni = sorguUrun.kopyaOlustur(urun);
+                        yeni.adet -= defo.adet;
+                        sorguUrun.Guncelle(urun, yeni);
+                        MessageBox.Show("Başarı ile tamalandı");
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Kayıt esnasında bir sorun oluştu", "dikkat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                {
+                    this.textBoxBarkod.Text = "";
+                    this.numericUpDownAdet.Value = 1;
+                    this.textBoxAcıklama.Text = "";
+                    this.textBoxBarkodKntrl = false;
+                }
             }
+            
         
         }
 
         private void textBoxBarkod_KeyPress(object sender, KeyPressEventArgs e)
         {
             TemelKurallar.textBox_KeyPress(sender, e);
+        }
+
+        private void textBoxBarkod_MouseHover(object sender, EventArgs e)
+        {
+            TextBox al = (TextBox)sender;
+            if (!this.textBoxBarkodKntrl)
+            {
+                al.Text = "";
+                this.textBoxBarkodKntrl = true;
+
+            }
+        }
+
+
+        private void textBoxBarkod_TextChanged(object sender, EventArgs e)
+        {
+            urun = TemelKurallar.araUrun(sender: sender, e: e);
         }
     }
 }

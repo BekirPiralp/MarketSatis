@@ -37,15 +37,11 @@ namespace MarketSatis
             this.buttonGozat = new System.Windows.Forms.Button();
             this.textBoxEkbilgi = new System.Windows.Forms.TextBox();
             this.textBoxAdres = new System.Windows.Forms.TextBox();
-            this.textBoxEposta = new System.Windows.Forms.TextBox();
-            this.textBoxTelefon = new System.Windows.Forms.TextBox();
             this.textBoxSoyad = new System.Windows.Forms.TextBox();
             this.textBoxAd = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxTc = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.textBoxResim = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -53,13 +49,19 @@ namespace MarketSatis
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.openFileDialogResim = new System.Windows.Forms.OpenFileDialog();
+            this.comboBoxUlke = new System.Windows.Forms.ComboBox();
+            this.comboBoxil = new System.Windows.Forms.ComboBox();
+            this.comboBoxilçe = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonIptal
             // 
             this.buttonIptal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonIptal.Location = new System.Drawing.Point(556, 391);
+            this.buttonIptal.Location = new System.Drawing.Point(564, 397);
             this.buttonIptal.Name = "buttonIptal";
             this.buttonIptal.Size = new System.Drawing.Size(75, 23);
             this.buttonIptal.TabIndex = 39;
@@ -70,7 +72,7 @@ namespace MarketSatis
             // buttonTamam
             // 
             this.buttonTamam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonTamam.Location = new System.Drawing.Point(556, 346);
+            this.buttonTamam.Location = new System.Drawing.Point(564, 352);
             this.buttonTamam.Name = "buttonTamam";
             this.buttonTamam.Size = new System.Drawing.Size(75, 23);
             this.buttonTamam.TabIndex = 38;
@@ -81,7 +83,7 @@ namespace MarketSatis
             // radioButtonCalisan
             // 
             this.radioButtonCalisan.AutoSize = true;
-            this.radioButtonCalisan.Location = new System.Drawing.Point(294, 180);
+            this.radioButtonCalisan.Location = new System.Drawing.Point(298, 140);
             this.radioButtonCalisan.Name = "radioButtonCalisan";
             this.radioButtonCalisan.Size = new System.Drawing.Size(59, 17);
             this.radioButtonCalisan.TabIndex = 34;
@@ -92,7 +94,7 @@ namespace MarketSatis
             // radioButtonYonetici
             // 
             this.radioButtonYonetici.AutoSize = true;
-            this.radioButtonYonetici.Location = new System.Drawing.Point(225, 179);
+            this.radioButtonYonetici.Location = new System.Drawing.Point(229, 139);
             this.radioButtonYonetici.Name = "radioButtonYonetici";
             this.radioButtonYonetici.Size = new System.Drawing.Size(63, 17);
             this.radioButtonYonetici.TabIndex = 33;
@@ -103,7 +105,7 @@ namespace MarketSatis
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(177, 181);
+            this.label6.Location = new System.Drawing.Point(181, 141);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 13);
             this.label6.TabIndex = 32;
@@ -123,36 +125,21 @@ namespace MarketSatis
             // 
             this.textBoxEkbilgi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxEkbilgi.Location = new System.Drawing.Point(65, 321);
+            this.textBoxEkbilgi.Location = new System.Drawing.Point(65, 327);
             this.textBoxEkbilgi.Multiline = true;
             this.textBoxEkbilgi.Name = "textBoxEkbilgi";
-            this.textBoxEkbilgi.Size = new System.Drawing.Size(483, 93);
+            this.textBoxEkbilgi.Size = new System.Drawing.Size(491, 93);
             this.textBoxEkbilgi.TabIndex = 25;
             // 
             // textBoxAdres
             // 
             this.textBoxAdres.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxAdres.Location = new System.Drawing.Point(67, 217);
+            this.textBoxAdres.Location = new System.Drawing.Point(67, 223);
             this.textBoxAdres.Multiline = true;
             this.textBoxAdres.Name = "textBoxAdres";
-            this.textBoxAdres.Size = new System.Drawing.Size(483, 93);
+            this.textBoxAdres.Size = new System.Drawing.Size(491, 93);
             this.textBoxAdres.TabIndex = 24;
-            // 
-            // textBoxEposta
-            // 
-            this.textBoxEposta.Location = new System.Drawing.Point(229, 145);
-            this.textBoxEposta.Name = "textBoxEposta";
-            this.textBoxEposta.Size = new System.Drawing.Size(100, 20);
-            this.textBoxEposta.TabIndex = 23;
-            // 
-            // textBoxTelefon
-            // 
-            this.textBoxTelefon.Location = new System.Drawing.Point(229, 121);
-            this.textBoxTelefon.Name = "textBoxTelefon";
-            this.textBoxTelefon.Size = new System.Drawing.Size(100, 20);
-            this.textBoxTelefon.TabIndex = 22;
-            this.textBoxTelefon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTc_KeyPress);
             // 
             // textBoxSoyad
             // 
@@ -174,7 +161,7 @@ namespace MarketSatis
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(11, 323);
+            this.label8.Location = new System.Drawing.Point(11, 329);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 13);
             this.label8.TabIndex = 17;
@@ -184,7 +171,7 @@ namespace MarketSatis
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 219);
+            this.label7.Location = new System.Drawing.Point(13, 225);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 13);
             this.label7.TabIndex = 16;
@@ -197,24 +184,6 @@ namespace MarketSatis
             this.textBoxTc.Size = new System.Drawing.Size(100, 20);
             this.textBoxTc.TabIndex = 19;
             this.textBoxTc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTc_KeyPress);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(180, 148);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Eposta:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(177, 124);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 13);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Telefon:";
             // 
             // textBoxResim
             // 
@@ -273,11 +242,72 @@ namespace MarketSatis
             // 
             this.openFileDialogResim.FileName = "Resim Secin";
             // 
+            // comboBoxUlke
+            // 
+            this.comboBoxUlke.FormattingEnabled = true;
+            this.comboBoxUlke.Location = new System.Drawing.Point(67, 179);
+            this.comboBoxUlke.Name = "comboBoxUlke";
+            this.comboBoxUlke.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxUlke.TabIndex = 40;
+            this.comboBoxUlke.SelectedIndexChanged += new System.EventHandler(this.comboBoxUlke_SelectedIndexChanged);
+            this.comboBoxUlke.MouseHover += new System.EventHandler(this.comboBoxUlke_MouseHover);
+            // 
+            // comboBoxil
+            // 
+            this.comboBoxil.FormattingEnabled = true;
+            this.comboBoxil.Location = new System.Drawing.Point(208, 179);
+            this.comboBoxil.Name = "comboBoxil";
+            this.comboBoxil.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxil.TabIndex = 40;
+            this.comboBoxil.SelectedIndexChanged += new System.EventHandler(this.comboBoxil_SelectedIndexChanged);
+            // 
+            // comboBoxilçe
+            // 
+            this.comboBoxilçe.FormattingEnabled = true;
+            this.comboBoxilçe.Location = new System.Drawing.Point(350, 179);
+            this.comboBoxilçe.Name = "comboBoxilçe";
+            this.comboBoxilçe.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxilçe.TabIndex = 40;
+            this.comboBoxilçe.SelectedIndexChanged += new System.EventHandler(this.comboBoxilçe_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(101, 163);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 13);
+            this.label5.TabIndex = 41;
+            this.label5.Text = "Ülke";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(263, 163);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(12, 13);
+            this.label9.TabIndex = 41;
+            this.label9.Text = "İl";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(401, 163);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(24, 13);
+            this.label10.TabIndex = 41;
+            this.label10.Text = "İlçe";
+            // 
             // FormPersonelEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(643, 428);
+            this.ClientSize = new System.Drawing.Size(651, 434);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.comboBoxilçe);
+            this.Controls.Add(this.comboBoxil);
+            this.Controls.Add(this.comboBoxUlke);
             this.Controls.Add(this.buttonIptal);
             this.Controls.Add(this.buttonTamam);
             this.Controls.Add(this.radioButtonCalisan);
@@ -286,15 +316,11 @@ namespace MarketSatis
             this.Controls.Add(this.buttonGozat);
             this.Controls.Add(this.textBoxEkbilgi);
             this.Controls.Add(this.textBoxAdres);
-            this.Controls.Add(this.textBoxEposta);
-            this.Controls.Add(this.textBoxTelefon);
             this.Controls.Add(this.textBoxSoyad);
             this.Controls.Add(this.textBoxAd);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxTc);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.textBoxResim);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -321,15 +347,11 @@ namespace MarketSatis
         private System.Windows.Forms.Button buttonGozat;
         private System.Windows.Forms.TextBox textBoxEkbilgi;
         private System.Windows.Forms.TextBox textBoxAdres;
-        private System.Windows.Forms.TextBox textBoxEposta;
-        private System.Windows.Forms.TextBox textBoxTelefon;
         private System.Windows.Forms.TextBox textBoxSoyad;
         private System.Windows.Forms.TextBox textBoxAd;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxTc;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxResim;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -337,5 +359,11 @@ namespace MarketSatis
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.OpenFileDialog openFileDialogResim;
+        private System.Windows.Forms.ComboBox comboBoxUlke;
+        private System.Windows.Forms.ComboBox comboBoxil;
+        private System.Windows.Forms.ComboBox comboBoxilçe;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -40,9 +40,6 @@ namespace MarketSatis
             this.checkBoxSoyad = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxTc = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxEposta = new System.Windows.Forms.TextBox();
-            this.checkBoxEposta = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.radioButtonYonetici = new System.Windows.Forms.RadioButton();
             this.radioButtonCalisan = new System.Windows.Forms.RadioButton();
@@ -53,9 +50,6 @@ namespace MarketSatis
             this.textBoxEkbilgi = new System.Windows.Forms.TextBox();
             this.checkBoxAdres = new System.Windows.Forms.CheckBox();
             this.checkBoxEkbilgi = new System.Windows.Forms.CheckBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBoxTelefon = new System.Windows.Forms.TextBox();
-            this.checkBoxTelefon = new System.Windows.Forms.CheckBox();
             this.buttonTamam = new System.Windows.Forms.Button();
             this.buttonIptal = new System.Windows.Forms.Button();
             this.buttonGozat = new System.Windows.Forms.Button();
@@ -162,36 +156,10 @@ namespace MarketSatis
             this.textBoxTc.TabIndex = 2;
             this.textBoxTc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTc_KeyPress);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(179, 146);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Eposta:";
-            // 
-            // textBoxEposta
-            // 
-            this.textBoxEposta.Location = new System.Drawing.Point(228, 143);
-            this.textBoxEposta.Name = "textBoxEposta";
-            this.textBoxEposta.Size = new System.Drawing.Size(100, 20);
-            this.textBoxEposta.TabIndex = 2;
-            // 
-            // checkBoxEposta
-            // 
-            this.checkBoxEposta.AutoSize = true;
-            this.checkBoxEposta.Location = new System.Drawing.Point(349, 146);
-            this.checkBoxEposta.Name = "checkBoxEposta";
-            this.checkBoxEposta.Size = new System.Drawing.Size(68, 17);
-            this.checkBoxEposta.TabIndex = 4;
-            this.checkBoxEposta.Text = "Güncelle";
-            this.checkBoxEposta.UseVisualStyleBackColor = true;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(176, 179);
+            this.label6.Location = new System.Drawing.Point(180, 145);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 13);
             this.label6.TabIndex = 5;
@@ -200,7 +168,7 @@ namespace MarketSatis
             // radioButtonYonetici
             // 
             this.radioButtonYonetici.AutoSize = true;
-            this.radioButtonYonetici.Location = new System.Drawing.Point(224, 177);
+            this.radioButtonYonetici.Location = new System.Drawing.Point(228, 143);
             this.radioButtonYonetici.Name = "radioButtonYonetici";
             this.radioButtonYonetici.Size = new System.Drawing.Size(63, 17);
             this.radioButtonYonetici.TabIndex = 6;
@@ -211,7 +179,7 @@ namespace MarketSatis
             // radioButtonCalisan
             // 
             this.radioButtonCalisan.AutoSize = true;
-            this.radioButtonCalisan.Location = new System.Drawing.Point(293, 178);
+            this.radioButtonCalisan.Location = new System.Drawing.Point(297, 144);
             this.radioButtonCalisan.Name = "radioButtonCalisan";
             this.radioButtonCalisan.Size = new System.Drawing.Size(59, 17);
             this.radioButtonCalisan.TabIndex = 6;
@@ -222,7 +190,7 @@ namespace MarketSatis
             // checkBoxDurum
             // 
             this.checkBoxDurum.AutoSize = true;
-            this.checkBoxDurum.Location = new System.Drawing.Point(358, 178);
+            this.checkBoxDurum.Location = new System.Drawing.Point(362, 144);
             this.checkBoxDurum.Name = "checkBoxDurum";
             this.checkBoxDurum.Size = new System.Drawing.Size(68, 17);
             this.checkBoxDurum.TabIndex = 7;
@@ -291,33 +259,6 @@ namespace MarketSatis
             this.checkBoxEkbilgi.Text = "Güncelle";
             this.checkBoxEkbilgi.UseVisualStyleBackColor = true;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(176, 122);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 13);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Telefon:";
-            // 
-            // textBoxTelefon
-            // 
-            this.textBoxTelefon.Location = new System.Drawing.Point(228, 119);
-            this.textBoxTelefon.Name = "textBoxTelefon";
-            this.textBoxTelefon.Size = new System.Drawing.Size(100, 20);
-            this.textBoxTelefon.TabIndex = 2;
-            this.textBoxTelefon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTc_KeyPress);
-            // 
-            // checkBoxTelefon
-            // 
-            this.checkBoxTelefon.AutoSize = true;
-            this.checkBoxTelefon.Location = new System.Drawing.Point(349, 121);
-            this.checkBoxTelefon.Name = "checkBoxTelefon";
-            this.checkBoxTelefon.Size = new System.Drawing.Size(68, 17);
-            this.checkBoxTelefon.TabIndex = 4;
-            this.checkBoxTelefon.Text = "Güncelle";
-            this.checkBoxTelefon.UseVisualStyleBackColor = true;
-            // 
             // buttonTamam
             // 
             this.buttonTamam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -376,23 +317,17 @@ namespace MarketSatis
             this.Controls.Add(this.radioButtonCalisan);
             this.Controls.Add(this.radioButtonYonetici);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.checkBoxEposta);
-            this.Controls.Add(this.checkBoxTelefon);
             this.Controls.Add(this.checkBoxSoyad);
             this.Controls.Add(this.checkBoxAd);
             this.Controls.Add(this.checkBoxResim);
             this.Controls.Add(this.buttonGozat);
             this.Controls.Add(this.textBoxEkbilgi);
             this.Controls.Add(this.textBoxAdres);
-            this.Controls.Add(this.textBoxEposta);
-            this.Controls.Add(this.textBoxTelefon);
             this.Controls.Add(this.textBoxSoyad);
             this.Controls.Add(this.textBoxAd);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxTc);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.textBoxResim);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -423,9 +358,6 @@ namespace MarketSatis
         private System.Windows.Forms.CheckBox checkBoxSoyad;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxTc;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxEposta;
-        private System.Windows.Forms.CheckBox checkBoxEposta;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RadioButton radioButtonYonetici;
         private System.Windows.Forms.RadioButton radioButtonCalisan;
@@ -436,9 +368,6 @@ namespace MarketSatis
         private System.Windows.Forms.TextBox textBoxEkbilgi;
         private System.Windows.Forms.CheckBox checkBoxAdres;
         private System.Windows.Forms.CheckBox checkBoxEkbilgi;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBoxTelefon;
-        private System.Windows.Forms.CheckBox checkBoxTelefon;
         private System.Windows.Forms.Button buttonTamam;
         private System.Windows.Forms.Button buttonIptal;
         private System.Windows.Forms.Button buttonGozat;

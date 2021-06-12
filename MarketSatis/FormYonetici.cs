@@ -89,19 +89,19 @@ namespace MarketSatis
 
         private void ürünDefoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormDefo formDefo = new FormDefo(al:TCGet());
+            FormDefo formDefo = new FormDefo(temelVeri);
             formDefo.ShowDialog();
         }
 
         private void iadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormIade formIade = new FormIade(TcAl:TCGet());
+            FormIade formIade = new FormIade(temelVeri);
             formIade.ShowDialog();
         }
 
         private void satışToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormSatis formSatis = new FormSatis(TcAl:TCGet());
+            FormSatis formSatis = new FormSatis(temelVeri);
             formSatis.ShowDialog();
         }
     }

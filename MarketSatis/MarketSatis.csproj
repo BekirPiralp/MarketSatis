@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
@@ -47,8 +48,14 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,18 +147,25 @@
       <DependentUpon>FormYonetici.cs</DependentUpon>
     </Compile>
     <Compile Include="HataTanimlamalari\ClassBosVeri.cs" />
-    <Compile Include="market_veritabaniDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>market_veritabaniDataSet.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="ListUrunSatis.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TemelKurallar.cs" />
     <Compile Include="TemelVeri.cs" />
+    <Compile Include="VeriTabani\Kodlar\SorguDefo.cs" />
+    <Compile Include="VeriTabani\Kodlar\SorguFis.cs" />
+    <Compile Include="VeriTabani\Kodlar\SorguIade.cs" />
+    <Compile Include="VeriTabani\Kodlar\SorguSatis.cs" />
+    <Compile Include="VeriTabani\Veritabani\Defo.cs" />
+    <Compile Include="VeriTabani\Veritabani\Fis.cs" />
     <Compile Include="VeriTabani\Kodlar\ClassVeriTabaniTemel.cs" />
     <Compile Include="VeriTabani\Kodlar\InterfaceVeriTabaniTemel.cs" />
     <Compile Include="VeriTabani\Kodlar\SorguIslem.cs" />
+    <Compile Include="VeriTabani\Kodlar\SorguUrun.cs" />
+    <Compile Include="VeriTabani\Veritabani\Iade.cs" />
+    <Compile Include="VeriTabani\Veritabani\Ozel.cs" />
+    <Compile Include="VeriTabani\Veritabani\Satis.cs" />
+    <Compile Include="VeriTabani\Veritabani\Urun.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,16 +221,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="market_veritabaniDataSet.xsc">
-      <DependentUpon>market_veritabaniDataSet.xsd</DependentUpon>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
-    <None Include="market_veritabaniDataSet.xsd">
+    <None Include="DataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>market_veritabaniDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="market_veritabaniDataSet.xss">
-      <DependentUpon>market_veritabaniDataSet.xsd</DependentUpon>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -236,10 +250,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Resim\" />
-    <Folder Include="VeriTabani\Veritabani\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resim\boskullanici.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resim\urun.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

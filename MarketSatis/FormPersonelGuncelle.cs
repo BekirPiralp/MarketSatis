@@ -73,9 +73,7 @@ namespace MarketSatis
                 kontrol += ayar(checkBoxSoyad, textBoxSoyad.Text, ref guncelle);
                 kontrol += ayar(checkBoxAdres,textBoxAdres.Text , ref guncelle);
                 kontrol += ayar(checkBoxEkbilgi,textBoxEkbilgi.Text, ref guncelle);
-                kontrol += ayar(checkBoxEposta, textBoxEposta.Text, ref guncelle);
                 kontrol += ayar(checkBoxResim, textBoxResim.Text, ref guncelle);
-                kontrol += ayar(checkBoxTelefon, textBoxTelefon.Text, ref guncelle);
                 if (radioButtonYonetici.Checked == true)
                 {
                     kontrol += ayar(checkBoxDurum, "true", ref guncelle);

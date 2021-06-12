@@ -108,6 +108,7 @@ namespace MarketSatis
             this.textBoxBarkod.Name = "textBoxBarkod";
             this.textBoxBarkod.Size = new System.Drawing.Size(159, 20);
             this.textBoxBarkod.TabIndex = 3;
+            this.textBoxBarkod.TextChanged += new System.EventHandler(this.textBoxBarkod_TextChanged);
             this.textBoxBarkod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxBarkod_KeyPress);
             // 
             // checkBoxFiyatGuncelle
@@ -154,6 +155,7 @@ namespace MarketSatis
             // 
             // numericUpDownIndirim
             // 
+            this.numericUpDownIndirim.DecimalPlaces = 2;
             this.numericUpDownIndirim.Location = new System.Drawing.Point(68, 104);
             this.numericUpDownIndirim.Name = "numericUpDownIndirim";
             this.numericUpDownIndirim.Size = new System.Drawing.Size(159, 20);

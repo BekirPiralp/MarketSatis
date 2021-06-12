@@ -10,11 +10,12 @@ using MarketSatis.HataTanimlamalari;
 
 namespace MarketSatis.VeriTabani.Kodlar
 {
-    class ClassVeriTabaniTemel : InterfaceVeriTabaniTemel
+    public  class ClassVeriTabaniTemel : InterfaceVeriTabaniTemel
     {
         public OleDbConnection veriTabani { get; set; }
         public OleDbCommand veriTabaniKomut { get ; set ; }
         public OleDbDataReader veriTabaniOkuyucu { get ; set ; }
+        public OleDbParameter veriParametre { get; set; }
         public ClassVeriTabaniTemel()
         {
             
@@ -158,6 +159,7 @@ namespace MarketSatis.VeriTabani.Kodlar
             return false;
         }
 
+        
         public object kumeDondurenSorguKomutlarIsle()
         {
             throw new NotImplementedException();
@@ -219,7 +221,8 @@ namespace MarketSatis.VeriTabani.Kodlar
             try
             {
                 baglan();
-                obj = this.veriTabaniKomut.ExecuteScalar()!=null? this.veriTabaniKomut.ExecuteScalar():throw new ClassBosVeri("veri gelmedi") ;
+                String i = "";
+                obj = this.veriTabaniKomut.ExecuteScalar()!=null? this.veriTabaniKomut.ExecuteScalar(): i;
             }
             catch (NullReferenceException hata) 
             {
@@ -272,5 +275,7 @@ namespace MarketSatis.VeriTabani.Kodlar
 
             return adres;
         }
+
+        
     }
 }

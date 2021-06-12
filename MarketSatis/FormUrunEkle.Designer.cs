@@ -30,13 +30,13 @@ namespace MarketSatis
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxMarka = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxAd = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxUretimYeri = new System.Windows.Forms.TextBox();
+            this.textBoxAciklama = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.numericUpDownFiyat = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,12 +65,12 @@ namespace MarketSatis
             this.label1.TabIndex = 0;
             this.label1.Text = "Marka:";
             // 
-            // textBox1
+            // textBoxMarka
             // 
-            this.textBox1.Location = new System.Drawing.Point(111, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(245, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBoxMarka.Location = new System.Drawing.Point(111, 38);
+            this.textBoxMarka.Name = "textBoxMarka";
+            this.textBoxMarka.Size = new System.Drawing.Size(245, 20);
+            this.textBoxMarka.TabIndex = 1;
             // 
             // label2
             // 
@@ -82,12 +82,12 @@ namespace MarketSatis
             this.label2.TabIndex = 0;
             this.label2.Text = "Adı:";
             // 
-            // textBox2
+            // textBoxAd
             // 
-            this.textBox2.Location = new System.Drawing.Point(111, 65);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(245, 20);
-            this.textBox2.TabIndex = 1;
+            this.textBoxAd.Location = new System.Drawing.Point(111, 65);
+            this.textBoxAd.Name = "textBoxAd";
+            this.textBoxAd.Size = new System.Drawing.Size(245, 20);
+            this.textBoxAd.TabIndex = 1;
             // 
             // label3
             // 
@@ -109,20 +109,20 @@ namespace MarketSatis
             this.label4.TabIndex = 0;
             this.label4.Text = "Açıklama:";
             // 
-            // textBox3
+            // textBoxUretimYeri
             // 
-            this.textBox3.Location = new System.Drawing.Point(111, 92);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(245, 20);
-            this.textBox3.TabIndex = 1;
+            this.textBoxUretimYeri.Location = new System.Drawing.Point(111, 92);
+            this.textBoxUretimYeri.Name = "textBoxUretimYeri";
+            this.textBoxUretimYeri.Size = new System.Drawing.Size(245, 20);
+            this.textBoxUretimYeri.TabIndex = 1;
             // 
-            // textBox4
+            // textBoxAciklama
             // 
-            this.textBox4.Location = new System.Drawing.Point(111, 119);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(245, 145);
-            this.textBox4.TabIndex = 1;
+            this.textBoxAciklama.Location = new System.Drawing.Point(111, 119);
+            this.textBoxAciklama.Multiline = true;
+            this.textBoxAciklama.Name = "textBoxAciklama";
+            this.textBoxAciklama.Size = new System.Drawing.Size(245, 145);
+            this.textBoxAciklama.TabIndex = 1;
             // 
             // label5
             // 
@@ -294,12 +294,12 @@ namespace MarketSatis
             this.Controls.Add(this.buttonGozat);
             this.Controls.Add(this.numericUpDownAdet);
             this.Controls.Add(this.numericUpDownFiyat);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBoxAciklama);
             this.Controls.Add(this.textBoxResim);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBoxAd);
+            this.Controls.Add(this.textBoxUretimYeri);
             this.Controls.Add(this.textBoxBarkod);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxMarka);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label2);
@@ -325,13 +325,13 @@ namespace MarketSatis
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxMarka;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxAd;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxUretimYeri;
+        private System.Windows.Forms.TextBox textBoxAciklama;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numericUpDownFiyat;
         private System.Windows.Forms.Label label6;

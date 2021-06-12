@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace MarketSatis.VeriTabani.Kodlar
 {
-    interface InterfaceVeriTabaniTemel
+    public interface InterfaceVeriTabaniTemel
     {
         OleDbConnection veriTabani { get; set; }
         OleDbCommand veriTabaniKomut { get; set; }
