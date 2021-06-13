@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarketSatis.VeriTabani.Kodlar;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace MarketSatis
     public partial class FormYonetici : Form
     {
         private TemelVeri temelVeri;
+        SorguIslem sorguIslem = new SorguIslem(); 
         String TC;
         public String TCGet()
         {
@@ -32,7 +34,12 @@ namespace MarketSatis
             this.temelVeri = temelVeri;
             this.TC = temelVeri.Tc.Trim();
             InitializeComponent();
+            
+
         }
+
+   
+
         private void çıkışToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult=
@@ -110,6 +117,17 @@ namespace MarketSatis
         {
             FormSifreDegistir formSifreDegistir = new FormSifreDegistir(temelVeri);
             formSifreDegistir.ShowDialog();
+        }
+
+        private void FormYonetici_Load(object sender, EventArgs e)
+        {
+           sorguIslem.Chartgoster(this.chart1, series: "Topla satışlar");
+           
+        }
+        /*Testi yapıldı gayet güzel çalışıyor*/
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            FormYonetici_Load(sender, e);// her 10 sn de 1 güncelleme
         }
     }
 }

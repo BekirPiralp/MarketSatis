@@ -45,6 +45,7 @@ namespace MarketSatis.VeriTabani.Kodlar
 
         public bool baglan()
         {
+            this.baglantiKes();
             try
             {
                 veriTabani.Open();

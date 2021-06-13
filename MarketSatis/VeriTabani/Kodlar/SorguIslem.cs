@@ -1,6 +1,8 @@
 ﻿using MarketSatis.VeriTabani.Veritabani;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -8,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Windows.Media.Imaging;
 using static MarketSatis.Properties.Resources;
 
@@ -151,24 +154,14 @@ namespace MarketSatis.VeriTabani.Kodlar
         /// 
         public Image cevirByteArrayImage(byte[] rsm)
         {
-            //System.IO.MemoryStream memoryStream = new MemoryStream(rsm);
-            //Stream stream = memoryStream;
-            //Image a = System.Drawing.Bitmap.FromStream(memoryStream);
-            if(rsm != null && rsm.Length != 0)
-            {
-                using (MemoryStream stream = new MemoryStream(rsm))
-                {
-                    return Image.FromStream(stream);
-                }
-
-            }
-            else
-            {
-                return null;
-            }
+            MessageBox.Show(rsm[0] + "     " + rsm[0].ToString());
+            MemoryStream ms = new MemoryStream(rsm);
+            Image resim = Image.FromStream(ms);
+            ms.Dispose();
+            return resim;
         }
 
-        
+
 
         /// <summary>
         /// Aldığı Image nesnesini byte dizisine dönüştürür
@@ -178,15 +171,10 @@ namespace MarketSatis.VeriTabani.Kodlar
         /// <returns></returns>
         public byte[] cevirImageByteArray(Image rsm)
         {
-            MemoryStream memoryStream = new MemoryStream();
-            rsm.Save(memoryStream, ImageFormat.Jpeg);
+            MemoryStream ms = new MemoryStream();
             
-            //return memoryStream.ToArray();
-            byte[] data;
-            data=(byte[])rsm.Clone();
-            //data = new byte[memoryStream.Length];
-           // memoryStream.Write(data, 0, data.Length);
-            return data; 
+            rsm.Save(ms,ImageFormat.Jpeg);
+            return ms.ToArray();
         }
 
         public bool girisTc(String Tc)
@@ -603,10 +591,9 @@ namespace MarketSatis.VeriTabani.Kodlar
             {
                 veriTabani.baglan();
                 byte[] foto = cevirImageByteArray(image);
-                veriTabani.veriParametre = new System.Data.OleDb.OleDbParameter(
-                    paremetreAdi, System.Data.OleDb.OleDbType.Binary);
-                veriTabani.veriParametre.Value = foto;
-                veriTabani.veriTabaniKomut.Parameters.Add(veriTabani.veriParametre);
+                //tring denemeson = System.Text.Encoding.UTF8.GetString(foto);
+                veriTabani.veriTabaniKomut.Parameters.AddWithValue(paremetreAdi,foto);
+                //veriTabani.veriParametre.OleDbType = SqlDbType.Image;//(veriTabani.veriParametre);
             }
             catch
             {
@@ -675,6 +662,54 @@ namespace MarketSatis.VeriTabani.Kodlar
             {
                 return null;
             }
+        }
+
+        public List<float> satislar()
+        {
+            veriTabani.komutAl(
+                komut: sorgu(
+                    tablo: tabloFis,
+                    sutunlar: "SUM(" + sorguToplamFiyat + ")",
+                    sart: "year(" + sorguTarihSaat + ") = year(getdate()) group by month(" + sorguTarihSaat + ");")
+                );
+            List<float> vs = new List<float>();
+            try
+            {
+                veriTabani.baglan();
+                veriTabani.veriTabaniOkuyucu = veriTabani.veriTabaniKomut.ExecuteReader();
+                while (veriTabani.veriTabaniOkuyucu.Read())
+                {
+                    vs.Add(float.Parse(veriTabani.veriTabaniOkuyucu[0].ToString()));
+                }
+                veriTabani.baglantiKes();
+                return vs;
+            }
+            catch 
+            {
+                MessageBox.Show("hata");
+                return null;
+            }
+
+        }
+        bool knt = false;
+        public void Chartgoster (Chart chart,String series)
+        {
+            if (!knt)
+            {
+                chart.Titles.Add("Bu seneki aya göre satışlar");
+                knt = true;
+            }
+            chart.Series[series].Points.Clear();
+            List<float> vs = satislar();
+            if (vs != null)
+            {
+                for (int i = 0; i < vs.Count; i++)
+                {
+                    chart.Series[series].Points.AddXY(i+1,double.Parse(vs[i].ToString()));
+                }
+               
+            }
+            
         }
 
 

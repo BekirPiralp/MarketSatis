@@ -161,7 +161,7 @@ namespace MarketSatis.VeriTabani.Kodlar
             ekle.indrim.ToString(),"@image"};
 
             MessageBox.Show(ekle.barkod);
-            Urun kntrl = Getir(ekle.barkod);
+            Urun kntrl = Getir(ekle.barkod.Trim());
             if (kntrl==null)//urun geliyorsa zaten sistemde ekli demektir ;D
             {
                 if (ekle.barkod != "")

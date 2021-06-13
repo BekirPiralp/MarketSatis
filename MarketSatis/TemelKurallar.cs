@@ -47,7 +47,8 @@ namespace MarketSatis
             if(textBox.Text != "")
             {
                 urun = sorguUrun.Getir(textBox.Text.Trim());
-                return urun;
+                if(urun!= null)
+                    return urun;
             }
             return null;
         }
