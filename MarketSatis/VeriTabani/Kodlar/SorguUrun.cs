@@ -185,6 +185,7 @@ namespace MarketSatis.VeriTabani.Kodlar
                                );
 
                     return veriTabani.sonucDondurmeyenSorguKomutIsle();
+                    veriTabani.baglantiKes();
                 }
             }
             return false;

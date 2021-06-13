@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarketSatis.VeriTabani.Kodlar;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace MarketSatis
     public partial class FormPersonelCikar : Form
     {
         private String Tc;
+        private TemelVeri temelVeri;
+        private SorguIslem sorguIslem = new SorguIslem();
         public FormPersonelCikar(String TcAl)
         {
             Tc = TcAl;
@@ -44,9 +47,31 @@ namespace MarketSatis
                     }
                     else
                     {
-                        //Yapılacak işlemler
-                        //ek bilgi de güncelleme yapılacak
+                        temelVeri = sorguIslem.temelVeriAl(this.textBoxTC.Text.Trim());
+                        if(temelVeri != null && textBox1.Text != "")
+                        {
+                            /*Personel birçok kez işten çıkarılmış olabilir...*/
+                            if (sorguIslem.temelVeriCikar(temelVeri: temelVeri, aciklama: textBox1.Text.Trim()))
+                            {
+                                MessageBox.Show("İslem başarılı");
+                            }
+                            else
+                            {
+                                MessageBox.Show("İslem başarısız");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Lütfen istenilen birl gileri tam giriniz ve Çıkarmak istediğiniz personelin " +
+                                "sistemde kayıtlı olduğundan emin olunuz.");
+                        }
+
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen emin olduktan sonra tekrar geliniz.!");
+                    this.Close();
                 }
             }
             else

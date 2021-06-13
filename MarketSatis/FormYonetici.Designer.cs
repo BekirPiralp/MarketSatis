@@ -29,10 +29,11 @@ namespace MarketSatis
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.satışToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ürünİşlemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ürünEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +48,7 @@ namespace MarketSatis
             this.çıkışToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
-            this.satışToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.şifreDeğiştirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -66,6 +67,13 @@ namespace MarketSatis
             this.menuStrip1.Size = new System.Drawing.Size(697, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // satışToolStripMenuItem
+            // 
+            this.satışToolStripMenuItem.Name = "satışToolStripMenuItem";
+            this.satışToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.satışToolStripMenuItem.Text = "Satış";
+            this.satışToolStripMenuItem.Click += new System.EventHandler(this.satışToolStripMenuItem_Click);
             // 
             // iadeToolStripMenuItem
             // 
@@ -111,7 +119,8 @@ namespace MarketSatis
             this.personelGörüntüleToolStripMenuItem,
             this.personelGüncelleToolStripMenuItem,
             this.personelEkleToolStripMenuItem,
-            this.personelÇıkarToolStripMenuItem});
+            this.personelÇıkarToolStripMenuItem,
+            this.şifreDeğiştirToolStripMenuItem});
             this.personelİşlemToolStripMenuItem.Name = "personelİşlemToolStripMenuItem";
             this.personelİşlemToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.personelİşlemToolStripMenuItem.Text = "Personel İşlem";
@@ -119,28 +128,28 @@ namespace MarketSatis
             // personelGörüntüleToolStripMenuItem
             // 
             this.personelGörüntüleToolStripMenuItem.Name = "personelGörüntüleToolStripMenuItem";
-            this.personelGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.personelGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.personelGörüntüleToolStripMenuItem.Text = "Personel Görüntüle";
             this.personelGörüntüleToolStripMenuItem.Click += new System.EventHandler(this.personelGörüntüleToolStripMenuItem_Click);
             // 
             // personelGüncelleToolStripMenuItem
             // 
             this.personelGüncelleToolStripMenuItem.Name = "personelGüncelleToolStripMenuItem";
-            this.personelGüncelleToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.personelGüncelleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.personelGüncelleToolStripMenuItem.Text = "Personel Güncelle";
             this.personelGüncelleToolStripMenuItem.Click += new System.EventHandler(this.personelGüncelleToolStripMenuItem_Click);
             // 
             // personelEkleToolStripMenuItem
             // 
             this.personelEkleToolStripMenuItem.Name = "personelEkleToolStripMenuItem";
-            this.personelEkleToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.personelEkleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.personelEkleToolStripMenuItem.Text = "Personel Ekle";
             this.personelEkleToolStripMenuItem.Click += new System.EventHandler(this.personelEkleToolStripMenuItem_Click);
             // 
             // personelÇıkarToolStripMenuItem
             // 
             this.personelÇıkarToolStripMenuItem.Name = "personelÇıkarToolStripMenuItem";
-            this.personelÇıkarToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.personelÇıkarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.personelÇıkarToolStripMenuItem.Text = "Personel Çıkar";
             this.personelÇıkarToolStripMenuItem.Click += new System.EventHandler(this.personelÇıkarToolStripMenuItem_Click);
             // 
@@ -169,18 +178,18 @@ namespace MarketSatis
             this.chart1.BorderSkin.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
             this.chart1.BorderSkin.PageColor = System.Drawing.SystemColors.ActiveCaption;
             this.chart1.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Cursor = System.Windows.Forms.Cursors.Default;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(16, 48);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(669, 411);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -195,12 +204,12 @@ namespace MarketSatis
             this.label1.TabIndex = 2;
             this.label1.Text = "Aylık Satış:";
             // 
-            // satışToolStripMenuItem
+            // şifreDeğiştirToolStripMenuItem
             // 
-            this.satışToolStripMenuItem.Name = "satışToolStripMenuItem";
-            this.satışToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.satışToolStripMenuItem.Text = "Satış";
-            this.satışToolStripMenuItem.Click += new System.EventHandler(this.satışToolStripMenuItem_Click);
+            this.şifreDeğiştirToolStripMenuItem.Name = "şifreDeğiştirToolStripMenuItem";
+            this.şifreDeğiştirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.şifreDeğiştirToolStripMenuItem.Text = "Şifre Değiştir";
+            this.şifreDeğiştirToolStripMenuItem.Click += new System.EventHandler(this.şifreDeğiştirToolStripMenuItem_Click);
             // 
             // FormYonetici
             // 
@@ -240,5 +249,6 @@ namespace MarketSatis
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem satışToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem şifreDeğiştirToolStripMenuItem;
     }
 }

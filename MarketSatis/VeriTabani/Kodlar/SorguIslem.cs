@@ -25,10 +25,11 @@ namespace MarketSatis.VeriTabani.Kodlar
             sorguAd = "ad", sorguSoyad = "soyad", sorguCinsiyet = "cinsiyet", sorguAciklama = "açıklama", sorguTarihSaat = "tarihSaat",
             sorguFotograf = "fotograf",sorguBarkod="barkod",sorguUrunAciklama= "acıklama",sorguMarka="marka",sorguUretimYeri= "üretimYeri",
             sorguFiyat = "fiyat",sorguIndirim= "indirim",sorguResim= "resim",sorguAdet= "adet",sorguUrun="ürün",sorguFis= "fiş",
-            sorguKod = "kod", sorguToplamFiyat = "toplamFiyat",sorguSatis="satış",sorguUlke="ülke",sorguil="il";
+            sorguKod = "kod", sorguToplamFiyat = "toplamFiyat",sorguSatis="satış",sorguUlke="ülke",sorguil="il",sorguilce= "ilçe",
+            sorguTarif="tarif";
         public String tabloPersonel = "Personel", tabloSil = "PersonelSil", tabloSifre = "Şifre",tabloEkBilgi = "EkBilgi",tabloFotograf = "Fotograf",
             tabloUrun = "Ürün",tabloFis= "Fis",tabloSatis= "Satış",tabloDefo="Defo",tabloIade="İade",tabloUlke="Ülke",
-            tabloil="İl",tabloilçe="İlçe";
+            tabloil="İl",tabloilçe="İlçe",tabloAdres="Adres",tabloPersonelSil="PersonelSil";
 
 
         protected ClassVeriTabaniTemel veriTabani;
@@ -58,7 +59,7 @@ namespace MarketSatis.VeriTabani.Kodlar
             return "Select " + sutunlar + " from " + tablo + " Where " + sart;
         }
         /// <summary>
-        /// Sutun ve degerlerini girerken
+        /// Sutun ve degerlerini girerken, degerleri
         /// 'abc' şekli ile ' ' => arasında girilmelidir.
         /// </summary>
         /// <param name="tablo"></param>
@@ -179,11 +180,12 @@ namespace MarketSatis.VeriTabani.Kodlar
         {
             MemoryStream memoryStream = new MemoryStream();
             rsm.Save(memoryStream, ImageFormat.Jpeg);
-
+            
             //return memoryStream.ToArray();
             byte[] data;
-            data = new byte[memoryStream.Length];
-            memoryStream.Write(data, 0, data.Length);
+            data=(byte[])rsm.Clone();
+            //data = new byte[memoryStream.Length];
+           // memoryStream.Write(data, 0, data.Length);
             return data; 
         }
 
@@ -425,7 +427,17 @@ namespace MarketSatis.VeriTabani.Kodlar
                             );
 
                         /*Adres*/
-                        // int ülke, int il, int ilçe
+                        String[] stnAdrs = { sorguUlke, sorguil, sorguilce, sorguTarif,sorguPersonel};
+                        String[] dgrAdrs = {temelVeri.Ulke.ToString(),temelVeri.il.ToString(),
+                        temelVeri.ilce.ToString(),temelVeri.Adres.Trim(),temelVeri.Id.ToString()};
+                        veriTabani.sonucDondurmeyenSorguKomutIsle(
+                            sorguKomut: ekle(
+                                tablo: tabloAdres,
+                                sutunlar: stnAdrs,
+                                degerler: dgrAdrs
+                                )
+                            );
+
                     }
                     catch 
                     {
@@ -439,10 +451,157 @@ namespace MarketSatis.VeriTabani.Kodlar
             return false;
         }
 
+        public bool temelVeriCikar(TemelVeri temelVeri, String aciklama)
+        {
+            
+            if (temelVeri != null&& temelVeri.Id >= 1)
+            {
+                try
+                {
+                    String[] stnPsil = { sorguPersonel, sorguAciklama };
+                    String[] dgrPsil = { temelVeri.Id.ToString(), aciklama.Trim() };
+                    veriTabani.sonucDondurmeyenSorguKomutIsle(sorguKomut:
+                        ekle(
+                            tablo:tabloPersonelSil,
+                            sutunlar:stnPsil,
+                            degerler:dgrPsil));
+                    return true;
+                }
+                catch 
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public bool temelVeriGuncelle(TemelVeri ana, TemelVeri guncel)
+        {
+            if (
+                String.Compare(ana.Ad,guncel.Ad)!=0 ||
+                String.Compare(ana.Soyad, guncel.Soyad) != 0 ||
+                ana.Yetki != guncel.Yetki ||
+                String.Compare(ana.Ekbilgi.Trim().ToLower(), guncel.Ekbilgi.Trim().ToLower()) != 0||
+                String.Compare(ana.Adres.Trim().ToLower(), guncel.Adres.Trim().ToLower()) != 0
+                ) 
+            {
+                try
+                {
+                    /*personel tablosu kısmı*/
+                    veriTabani.sonucDondurmeyenSorguKomutIsle(
+                        sorguKomut: guncelle(
+                            tablo: tabloPersonel,
+                            sutunVeDegerleri:
+                            sorguAd + " = '" + guncel.Ad.Trim() + "'," +
+                            sorguSoyad + " = '" + guncel.Soyad.Trim() + "'," +
+                            sorguYetki + " = '" + guncel.Yetki.ToString() + "',",
+                            sart: sorguId + " = '" + ana.Id.ToString() + "'"
+                            )
+                        );
+
+                    /*Ek bilgi tablosu*/
+                    veriTabani.sonucDondurmeyenSorguKomutIsle(
+                            sorguKomut: guncelle(
+                                tablo: tabloEkBilgi,
+                                sutunVeDegerleri:
+                                sorguAciklama + " = '" + guncel.Ekbilgi.Trim() + "'",
+                                sart: sorguPersonel + " = '" + ana.Id.ToString() + "'"
+                                )
+                            );
+
+                    /*Adres tablos*/
+                    veriTabani.sonucDondurmeyenSorguKomutIsle(
+                            sorguKomut: guncelle(
+                                tablo: tabloAdres,
+                                sutunVeDegerleri:
+                                sorguTarif + " = '" + guncel.Adres.Trim() + "'," +
+                                sorguil + " = '" + guncel.il.ToString() + "'," +
+                                sorguilce + " = '" + guncel.ilce.ToString() + "'," +
+                                sorguUlke + " = '" + guncel.Ulke.ToString() + "'",
+                                sart: sorguPersonel + " = '" + ana.Id.ToString() + "'"
+                                )
+                            );
+
+                    /*Fotograf tablosu*/
+                    veriTabani.baglan();
+                    veriTabani.komutAl(
+                        komut: guncelle(
+                               tablo: tabloEkBilgi,
+                               sutunVeDegerleri:
+                               sorguFotograf + " = @image",
+                               sart: sorguPersonel + " = '" + ana.Id.ToString() + "'"
+                               ));
+                    veriTabaniResimParmetreAl(
+                                   veriTabani: veriTabani,
+                                   image: guncel.fotograf,
+                                   paremetreAdi: "@image");
+                    veriTabani.sonucDondurmeyenSorguKomutIsle();
+                }
+                catch 
+                {
+                    return false;
+                }
+                finally
+                {
+                    veriTabani.baglantiKes();
+                }
+            }
+            return false;
+        }
+
+        public bool temelVeriKopyala  (TemelVeri kaynak, TemelVeri hedef)
+        {
+            
+            if(kaynak != null)
+            {
+                try
+                {
+                    hedef.Ad = kaynak.Ad;
+                    hedef.Adres = kaynak.Adres;
+                    hedef.Cinsiyet = kaynak.Cinsiyet;
+                    hedef.Ekbilgi = kaynak.Ekbilgi;
+                    hedef.fotograf = kaynak.fotograf;
+                    hedef.Id = kaynak.Id;
+                    hedef.il = kaynak.il;
+                    hedef.ilce = kaynak.ilce;
+                    hedef.Sifre = kaynak.Sifre;
+                    hedef.Soyad = kaynak.Soyad;
+                    hedef.Tc = kaynak.Tc;
+                    hedef.Ulke = kaynak.Ulke;
+                    hedef.Yetki = kaynak.Yetki;
+                    return true;
+                }
+                catch 
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public bool temelVeriSifreGuncelle(int id,String sifre)
+        {
+            try
+            {
+                return veriTabani.sonucDondurmeyenSorguKomutIsle(
+                        sorguKomut: guncelle(
+                            tablo: tabloSifre,
+                            sutunVeDegerleri: sorguSifre + " = '" + sifre + "'",
+                            sart: sorguId + " = '" + id.ToString() + "'"
+                            ));
+            }
+            catch 
+            {
+                return false;
+            }
+             
+        }
+
         protected bool veriTabaniResimParmetreAl(ClassVeriTabaniTemel veriTabani,Image image,String paremetreAdi)
         {
             try
             {
+                veriTabani.baglan();
                 byte[] foto = cevirImageByteArray(image);
                 veriTabani.veriParametre = new System.Data.OleDb.OleDbParameter(
                     paremetreAdi, System.Data.OleDb.OleDbType.Binary);
@@ -519,5 +678,9 @@ namespace MarketSatis.VeriTabani.Kodlar
         }
 
 
+        ~SorguIslem()
+        {
+            GC.Collect();// ne olur ne olmaz
+        }
     }
 }

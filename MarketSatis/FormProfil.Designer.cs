@@ -35,15 +35,16 @@ namespace MarketSatis
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelAdres = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelEkBilgi = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.labelTc = new System.Windows.Forms.Label();
             this.labelAd = new System.Windows.Forms.Label();
             this.labelSoyad = new System.Windows.Forms.Label();
             this.labelCinsiyet = new System.Windows.Forms.Label();
             this.labelYetki = new System.Windows.Forms.Label();
-            this.labelAdres = new System.Windows.Forms.Label();
-            this.labelEkBilgi = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -113,6 +114,18 @@ namespace MarketSatis
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Adres";
             // 
+            // labelAdres
+            // 
+            this.labelAdres.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelAdres.Font = new System.Drawing.Font("Lucida Calligraphy", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAdres.Location = new System.Drawing.Point(6, 16);
+            this.labelAdres.Name = "labelAdres";
+            this.labelAdres.Size = new System.Drawing.Size(506, 73);
+            this.labelAdres.TabIndex = 0;
+            this.labelAdres.Text = "label4";
+            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -127,6 +140,18 @@ namespace MarketSatis
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ek Bilgi";
+            // 
+            // labelEkBilgi
+            // 
+            this.labelEkBilgi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelEkBilgi.Font = new System.Drawing.Font("Lucida Calligraphy", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEkBilgi.Location = new System.Drawing.Point(6, 16);
+            this.labelEkBilgi.Name = "labelEkBilgi";
+            this.labelEkBilgi.Size = new System.Drawing.Size(506, 73);
+            this.labelEkBilgi.TabIndex = 0;
+            this.labelEkBilgi.Text = "label4";
             // 
             // label7
             // 
@@ -193,35 +218,23 @@ namespace MarketSatis
             this.labelYetki.Text = "Personel";
             this.labelYetki.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelAdres
+            // button1
             // 
-            this.labelAdres.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelAdres.Font = new System.Drawing.Font("Lucida Calligraphy", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAdres.Location = new System.Drawing.Point(6, 16);
-            this.labelAdres.Name = "labelAdres";
-            this.labelAdres.Size = new System.Drawing.Size(506, 73);
-            this.labelAdres.TabIndex = 0;
-            this.labelAdres.Text = "label4";
-            // 
-            // labelEkBilgi
-            // 
-            this.labelEkBilgi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelEkBilgi.Font = new System.Drawing.Font("Lucida Calligraphy", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEkBilgi.Location = new System.Drawing.Point(6, 16);
-            this.labelEkBilgi.Name = "labelEkBilgi";
-            this.labelEkBilgi.Size = new System.Drawing.Size(506, 73);
-            this.labelEkBilgi.TabIndex = 0;
-            this.labelEkBilgi.Text = "label4";
+            this.button1.Location = new System.Drawing.Point(385, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 63);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Çıkış";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormProfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(543, 414);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.labelCinsiyet);
             this.Controls.Add(this.labelSoyad);
             this.Controls.Add(this.labelAd);
@@ -265,5 +278,6 @@ namespace MarketSatis
         private System.Windows.Forms.Label labelYetki;
         private System.Windows.Forms.Label labelAdres;
         private System.Windows.Forms.Label labelEkBilgi;
+        private System.Windows.Forms.Button button1;
     }
 }

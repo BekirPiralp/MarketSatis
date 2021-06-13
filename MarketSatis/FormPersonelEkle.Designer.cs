@@ -55,7 +55,14 @@ namespace MarketSatis
             this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.radioButtonBay = new System.Windows.Forms.RadioButton();
+            this.radioButtonBayan = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonIptal
@@ -83,7 +90,8 @@ namespace MarketSatis
             // radioButtonCalisan
             // 
             this.radioButtonCalisan.AutoSize = true;
-            this.radioButtonCalisan.Location = new System.Drawing.Point(298, 140);
+            this.radioButtonCalisan.Checked = true;
+            this.radioButtonCalisan.Location = new System.Drawing.Point(148, 10);
             this.radioButtonCalisan.Name = "radioButtonCalisan";
             this.radioButtonCalisan.Size = new System.Drawing.Size(59, 17);
             this.radioButtonCalisan.TabIndex = 34;
@@ -94,18 +102,17 @@ namespace MarketSatis
             // radioButtonYonetici
             // 
             this.radioButtonYonetici.AutoSize = true;
-            this.radioButtonYonetici.Location = new System.Drawing.Point(229, 139);
+            this.radioButtonYonetici.Location = new System.Drawing.Point(79, 10);
             this.radioButtonYonetici.Name = "radioButtonYonetici";
             this.radioButtonYonetici.Size = new System.Drawing.Size(63, 17);
             this.radioButtonYonetici.TabIndex = 33;
-            this.radioButtonYonetici.TabStop = true;
             this.radioButtonYonetici.Text = "Yönetici";
             this.radioButtonYonetici.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(181, 141);
+            this.label6.Location = new System.Drawing.Point(30, 11);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 13);
             this.label6.TabIndex = 32;
@@ -245,7 +252,7 @@ namespace MarketSatis
             // comboBoxUlke
             // 
             this.comboBoxUlke.FormattingEnabled = true;
-            this.comboBoxUlke.Location = new System.Drawing.Point(67, 179);
+            this.comboBoxUlke.Location = new System.Drawing.Point(106, 197);
             this.comboBoxUlke.Name = "comboBoxUlke";
             this.comboBoxUlke.Size = new System.Drawing.Size(121, 21);
             this.comboBoxUlke.TabIndex = 40;
@@ -255,7 +262,7 @@ namespace MarketSatis
             // comboBoxil
             // 
             this.comboBoxil.FormattingEnabled = true;
-            this.comboBoxil.Location = new System.Drawing.Point(208, 179);
+            this.comboBoxil.Location = new System.Drawing.Point(247, 197);
             this.comboBoxil.Name = "comboBoxil";
             this.comboBoxil.Size = new System.Drawing.Size(121, 21);
             this.comboBoxil.TabIndex = 40;
@@ -264,7 +271,7 @@ namespace MarketSatis
             // comboBoxilçe
             // 
             this.comboBoxilçe.FormattingEnabled = true;
-            this.comboBoxilçe.Location = new System.Drawing.Point(350, 179);
+            this.comboBoxilçe.Location = new System.Drawing.Point(389, 197);
             this.comboBoxilçe.Name = "comboBoxilçe";
             this.comboBoxilçe.Size = new System.Drawing.Size(121, 21);
             this.comboBoxilçe.TabIndex = 40;
@@ -273,7 +280,7 @@ namespace MarketSatis
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(101, 163);
+            this.label5.Location = new System.Drawing.Point(140, 181);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 41;
@@ -282,7 +289,7 @@ namespace MarketSatis
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(263, 163);
+            this.label9.Location = new System.Drawing.Point(302, 181);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(12, 13);
             this.label9.TabIndex = 41;
@@ -291,17 +298,72 @@ namespace MarketSatis
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(401, 163);
+            this.label10.Location = new System.Drawing.Point(440, 181);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(24, 13);
             this.label10.TabIndex = 41;
             this.label10.Text = "İlçe";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.radioButtonYonetici);
+            this.groupBox1.Controls.Add(this.radioButtonCalisan);
+            this.groupBox1.Location = new System.Drawing.Point(184, 146);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(241, 32);
+            this.groupBox1.TabIndex = 42;
+            this.groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.radioButtonBay);
+            this.groupBox2.Controls.Add(this.radioButtonBayan);
+            this.groupBox2.Location = new System.Drawing.Point(184, 115);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(241, 32);
+            this.groupBox2.TabIndex = 42;
+            this.groupBox2.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(26, 12);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(46, 13);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "Cinsiyet:";
+            // 
+            // radioButtonBay
+            // 
+            this.radioButtonBay.AutoSize = true;
+            this.radioButtonBay.Checked = true;
+            this.radioButtonBay.Location = new System.Drawing.Point(79, 10);
+            this.radioButtonBay.Name = "radioButtonBay";
+            this.radioButtonBay.Size = new System.Drawing.Size(43, 17);
+            this.radioButtonBay.TabIndex = 33;
+            this.radioButtonBay.TabStop = true;
+            this.radioButtonBay.Text = "Bay";
+            this.radioButtonBay.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonBayan
+            // 
+            this.radioButtonBayan.AutoSize = true;
+            this.radioButtonBayan.Location = new System.Drawing.Point(148, 10);
+            this.radioButtonBayan.Name = "radioButtonBayan";
+            this.radioButtonBayan.Size = new System.Drawing.Size(55, 17);
+            this.radioButtonBayan.TabIndex = 34;
+            this.radioButtonBayan.Text = "Bayan";
+            this.radioButtonBayan.UseVisualStyleBackColor = true;
             // 
             // FormPersonelEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 434);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
@@ -310,9 +372,6 @@ namespace MarketSatis
             this.Controls.Add(this.comboBoxUlke);
             this.Controls.Add(this.buttonIptal);
             this.Controls.Add(this.buttonTamam);
-            this.Controls.Add(this.radioButtonCalisan);
-            this.Controls.Add(this.radioButtonYonetici);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonGozat);
             this.Controls.Add(this.textBoxEkbilgi);
             this.Controls.Add(this.textBoxAdres);
@@ -332,6 +391,10 @@ namespace MarketSatis
             this.ShowIcon = false;
             this.Text = "Personel Ekle";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -365,5 +428,10 @@ namespace MarketSatis
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.RadioButton radioButtonBay;
+        private System.Windows.Forms.RadioButton radioButtonBayan;
     }
 }

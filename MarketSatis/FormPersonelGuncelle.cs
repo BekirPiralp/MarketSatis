@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MarketSatis.VeriTabani.Kodlar;
+using MarketSatis.VeriTabani.Veritabani;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +14,16 @@ namespace MarketSatis
 {
     public partial class FormPersonelGuncelle : Form
     {
+        SorguIslem sorguIslem = new SorguIslem();
+        List<Ozel> ulke, ilce, il;
+        TemelVeri guncel,temelVeri;
+        bool kntrl = false;
+
+
         public FormPersonelGuncelle()
         {
             InitializeComponent();
         }
-
-        
 
         private void buttonGozat_Click(object sender, EventArgs e)
         {
@@ -47,46 +53,78 @@ namespace MarketSatis
         {
             TemelKurallar.textBox_KeyPressHarf(sender:sender,e:e);
         }
-        private int ayar(object checkbox, string textbox, ref string strng)
-        {
-            CheckBox checkBox = (CheckBox)checkbox;
-            
-            if (checkBox.Checked == true && textbox.Length > 0)
-            {
-                strng += textbox;
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
-        }
+       
         private void buttonTamam_Click(object sender, EventArgs e)
         {
-            int kontrol = 0;
-            String guncelle = "";
+           
             if(textBoxTc.Text != "" && textBoxTc.Text.Length == 11)
             {
                 //veri tabanı bulma ver ekleme kodu yazılacak
-                guncelle += textBoxTc.Text;
-                kontrol += ayar(checkBoxAd, textBoxAd.Text, ref guncelle);
-                kontrol += ayar(checkBoxSoyad, textBoxSoyad.Text, ref guncelle);
-                kontrol += ayar(checkBoxAdres,textBoxAdres.Text , ref guncelle);
-                kontrol += ayar(checkBoxEkbilgi,textBoxEkbilgi.Text, ref guncelle);
-                kontrol += ayar(checkBoxResim, textBoxResim.Text, ref guncelle);
-                if (radioButtonYonetici.Checked == true)
+                try
                 {
-                    kontrol += ayar(checkBoxDurum, "true", ref guncelle);
+                    temelVeri = sorguIslem.temelVeriAl(textBoxTc.Text);
+                    guncel = new TemelVeri(); 
+                    sorguIslem.temelVeriKopyala(temelVeri, guncel);
+                    if(temelVeri==null)
+                    {
+                        MessageBox.Show("Kullanıcının sistemde kayıtl olduğundan emin olunuz");
+                        return;
+                    }
                 }
-                else
+                catch
                 {
-                    kontrol += ayar(checkBoxDurum, "false", ref guncelle);
+                    MessageBox.Show("Bir hata ile karşılaşıldı");
+                    return;
                 }
 
-                if ( kontrol >=1)
+                if (
+                    this.textBoxTc.Text != "" || textBoxAd.Text != "" || textBoxSoyad.Text != "" ||
+                    radioButtonCalisan.Checked || radioButtonYonetici.Checked||
+                    textBoxAdres.Text != "" || kntrl ||pictureBox1.Image!=null)
                 {
-                    // veri tabanına yükle
-                    MessageBox.Show(guncelle);
+                    try
+                    {
+                        if (checkBoxAd.Checked && textBoxAd.Text != "")
+                            guncel.Ad = textBoxAd.Text.Trim();
+                        if (checkBoxDurum.Checked)
+                            guncel.Yetki = radioButtonYonetici.Checked;
+                        if (checkBoxEkbilgi.Checked && textBoxEkbilgi.Text != "")
+                            guncel.Ekbilgi = textBoxEkbilgi.Text.Trim();
+                        if (checkBoxSoyad.Checked && textBoxSoyad.Text != "")
+                            guncel.Soyad = textBoxSoyad.Text.Trim();
+                        if (checkBoxResim.Checked && pictureBox1.Image != null)
+                            guncel.fotograf = pictureBox1.Image;
+                        if (checkBoxAdres.Checked && kntrl && textBoxAdres.Text != "")
+                        {
+                            guncel.Adres = textBoxAdres.Text.Trim();
+                            guncel.il = il[comboBoxil.SelectedIndex].id;
+                            guncel.ilce = ilce[comboBoxilçe.SelectedIndex].id;
+                            guncel.Ulke = ulke[comboBoxUlke.SelectedIndex].id;
+                        }
+                    }
+                    catch 
+                    {
+
+                        MessageBox.Show("Verileri almada bir hata oluştu");
+                    }
+
+                    try
+                    {
+                       if (sorguIslem.temelVeriGuncelle(temelVeri, guncel))
+                        {
+                            MessageBox.Show("İşlem başarıyla gerçekleşti");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Verileri kayıt esnasında bir hata oluştu");
+                        }
+                    }
+                    catch 
+                    {
+                        MessageBox.Show("Verileri kayıt esnasında bir hata oluştu");
+                    }
+                        
+
                 }
                 else
                 {
@@ -102,6 +140,85 @@ namespace MarketSatis
         private void buttonIptal_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+
+        private void comboBoxUlke_MouseHover(object sender, EventArgs e)
+        {
+            comboBoxil.Items.Clear();
+            comboBoxilçe.Items.Clear();
+            comboBoxUlke.Items.Clear();
+
+            ulke =
+            sorguIslem.ComboBoxVeriEkle(tablo: sorguIslem.tabloUlke, comboBox: (ComboBox)sender);
+        }
+
+        private void comboBoxUlke_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxilçe.Items.Clear();
+            comboBoxil.Items.Clear();
+
+            il = sorguIslem.ComboBoxVeriEkle(
+                tablo: sorguIslem.tabloil,
+                comboBox: comboBoxil,
+                sart: sorguIslem.sorguUlke + " = " + ulke[comboBoxUlke.SelectedIndex].id);
+        }
+
+        private void comboBoxil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxilçe.Items.Clear();
+
+            ilce = sorguIslem.ComboBoxVeriEkle(
+                tablo: sorguIslem.tabloilçe,
+                comboBox: comboBoxilçe,
+                sart: sorguIslem.sorguUlke + " = " + ulke[comboBoxUlke.SelectedIndex].id +
+                " and " + sorguIslem.sorguil + " = " + il[comboBoxUlke.SelectedIndex].id);
+           
+        }
+
+        private void comboBoxilçe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // şuan için gerek görmüyorum ama seçimi sağlamam lazım
+            // peki otomatik gelen değer işine yararsa?
+
+            try
+            {
+                if(comboBoxilçe.SelectedItem.ToString() != "")
+                {
+                    kntrl = true; // önlem
+                }
+            }
+            catch
+            {
+
+                kntrl = false;
+            }
+            kntrl = true;//buraya kadar gelsiyse zaten ...
+        }
+
+        private void temizle()
+        {
+            /*Verileri temizleme*/
+            kntrl = false;
+            textBoxTc.Text = "";
+            pictureBox1.Image = null;
+            textBoxAd.Text = "";
+            textBoxSoyad.Text = "";
+            comboBoxil.Items.Clear();
+            comboBoxilçe.Items.Clear();
+            comboBoxUlke.Items.Clear();
+            textBoxAdres.Text = "";
+            textBoxEkbilgi.Text = "";
+            textBoxResim.Text = "";
+            ulke = null;
+            il = null;
+            ilce = null;
+        }
+
+        ~FormPersonelGuncelle()
+        {
+            temizle();
+            GC.Collect();
         }
     }
 }

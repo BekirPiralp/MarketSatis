@@ -17,6 +17,7 @@ namespace MarketSatis
         SorguIslem sorguIslem = new SorguIslem();
         List<Ozel> ulke,ilce,il;
         bool kntrl = false;
+        TemelVeri etveri;//eklenecek temel veri
 
         // personelin telefon ve email bilgisini bilerek kaldırdım
         // yönetici piskopat olabilir( bu yüzden tel.i kaldırdım) veya çalışanına illa email isteye bilir
@@ -73,8 +74,46 @@ namespace MarketSatis
         {
             // gerekli denetlemeler 
             // ve daha öce silinmiş biri ise işlem yapılmaz
-            /*burada kaldım*/
+            if(this.textBoxTc.Text!= ""&&textBoxAd.Text!=""&& textBoxSoyad.Text!= "" && 
+                (radioButtonCalisan.Checked||radioButtonYonetici.Checked)&&(radioButtonBay.Checked||radioButtonBayan.Checked)&&
+                textBoxAdres.Text != "" &&kntrl)
+            {
+                etveri = new TemelVeri();
+                /*Adres*/
+                etveri.Ulke = comboBoxUlke.SelectedIndex;
+                etveri.il = comboBoxil.SelectedIndex;
+                etveri.ilce = comboBoxilçe.SelectedIndex;
+                etveri.Adres = textBoxAdres.Text;
+                /*ekbilgi*/
+                etveri.Ekbilgi = textBoxEkbilgi.Text;
+                /*ad soya tc*/
+                etveri.Ad = textBoxAd.Text.Trim();
+                etveri.Soyad = textBoxSoyad.Text.Trim();
+                etveri.Tc = textBoxTc.Text.Trim();
+                /*Sifre*/
+                etveri.Sifre = textBoxTc.Text.Trim();
+                MessageBox.Show("Sifre varsayılan olarak personelin TC'sidir.");
+                /*Yetki*/
+                etveri.Yetki = radioButtonYonetici.Checked ? true : false;
+                /*Cinsiyet*/
+                etveri.Cinsiyet = radioButtonBay.Checked ? "Bay" : "Bayan";
+                if (sorguIslem.temelVeriEkle(temelVeri: etveri))
+                {
+                    MessageBox.Show("Eklemek istediğiniz kullanıcı sisteme başarı ile kaydedildi.");
+                }
+                else
+                {
+                    MessageBox.Show("Eklemek istediğiniz kullanıcı sisteme ekleme esnasında ya bir hata ile karşılaşıldı veya " +
+                        "kullanıcı daha önce siteme kaydedilmiş olduğu için ekleyemediniz");
+                }
 
+                /*Verileri temizleme*/
+                temizle();
+            }
+            else
+            {
+                MessageBox.Show("Bilgileri eksiksiz girip tekrar deneyiniz.");
+            }
         }
 
         private void comboBoxUlke_MouseHover(object sender, EventArgs e)
@@ -107,13 +146,51 @@ namespace MarketSatis
                 comboBox: comboBoxilçe,
                 sart: sorguIslem.sorguUlke + " = " + ulke[comboBoxUlke.SelectedIndex].id+
                 " and "+sorguIslem.sorguil+" = "+ il[comboBoxUlke.SelectedIndex].id);
-            kntrl = true;//buraya kadar gelsiyse zaten ...
+           // kntrl = true;//buraya kadar gelsiyse zaten ...
         }
 
         private void comboBoxilçe_SelectedIndexChanged(object sender, EventArgs e)
         {
             // şuan için gerek görmüyorum ama seçimi sağlamam lazım
             // peki otomatik gelen değer işine yararsa?
+
+            try
+            {
+                if (comboBoxilçe.SelectedItem.ToString() != "")
+                {
+                    kntrl = true; // önlem
+                }
+            }
+            catch
+            {
+                kntrl = false;
+            }
+            kntrl = true;//buraya kadar gelsiyse zaten ...
+        }
+
+        private void temizle()
+        {
+            /*Verileri temizleme*/
+            kntrl = false;
+            textBoxTc.Text = "";
+            pictureBox1.Image = null;
+            textBoxAd.Text = "";
+            textBoxSoyad.Text = "";
+            comboBoxil.Items.Clear();
+            comboBoxilçe.Items.Clear();
+            comboBoxUlke.Items.Clear();
+            textBoxAdres.Text = "";
+            textBoxEkbilgi.Text = "";
+            textBoxResim.Text = "";
+            ulke = null;
+            il = null;
+            ilce = null;
+        }
+
+        ~FormPersonelEkle()
+        {
+            temizle();
+            GC.Collect();
         }
     }
 }

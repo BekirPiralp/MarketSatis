@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarketSatis.VeriTabani.Kodlar;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace MarketSatis
 {
     public partial class FormPersonelGoruntule:Form
     {
+        SorguIslem sorguIslem = new SorguIslem();
+        TemelVeri temelVeri;
         public FormPersonelGoruntule()
         {
             InitializeComponent();
@@ -22,10 +25,18 @@ namespace MarketSatis
         {
             if(textBoxTc.TextLength==11)
             {
-                FormProfil formProfil = new FormProfil();
-                formProfil.TcSet(textBoxTc.Text);
+                temelVeri = sorguIslem.temelVeriAl(textBoxTc.Text.Trim());
+                if (temelVeri != null)
+                {
 
-                formProfil.ShowDialog();
+                    FormProfil formProfil = new FormProfil(temelVeri);
+
+                    formProfil.ShowDialog(); 
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen bilgileri kontrol ediniz veya aradığınız kullanıcın sistemde kayıtlı olduğundan emin olunuz.");
+                }
             }
             else
             {
@@ -41,11 +52,13 @@ namespace MarketSatis
             TemelKurallar.textBox_KeyPress(sender,e);
         }
 
-
-
-
-
-        // list box ta personeller Tc ve ad-soyadları listenecektir
+        /*
+         List box katıp ad soyad listeletip tıklamaya göre aça bilirdim
+        fakat burası kelime arama yeri değil eğerki görüntülenmek istenen personelin Tc'si bilinmiyor
+        o kişinin pek yönetici biri olduğunu söyleyemem
+        Çünkü bir kişi bir yere işe giderken Sigorta şartından dolayı ilk olarak kimlik bilgileri alınır...
+        Ve bunların bir nüshasıda ellerinde fiziksel döküman olarak depolanır...
+         */
     }
    
 }

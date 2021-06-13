@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarketSatis.VeriTabani.Kodlar;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,18 +15,10 @@ namespace MarketSatis
     {
         //public string Tc { get => Tc; set => Tc = value; }
         //Yukarıdakinde garip şekilde stack over flow hatası aldım
-        private string Tc;
+       
         private TemelVeri temelVeri;
-        public string TcGet()
-        {
-            return Tc;
-        }
-        public void TcSet(string value)
-        {
-            this.Tc = value.ToUpper();
-            this.labelTc.Text = value;
-        }
-
+        private SorguIslem sorguIslem = new SorguIslem();
+   
         public FormProfil()
         {
             InitializeComponent();
@@ -43,9 +36,12 @@ namespace MarketSatis
             this.labelAdres.Text = temelVeri.Adres;
             this.labelCinsiyet.Text = temelVeri.Cinsiyet;
             this.labelYetki.Text = temelVeri.Yetki ? " Yönetici" : " Çalışan";
-            this.pictureBox1.Image = temelVeri.fotograf;
+            this.pictureBox1.Image = temelVeri.fotograf!=null? temelVeri.fotograf:global::MarketSatis.Properties.Resources.boskullanici;
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

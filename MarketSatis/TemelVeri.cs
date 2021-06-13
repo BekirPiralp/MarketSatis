@@ -18,7 +18,9 @@ namespace MarketSatis
         public String Sifre { get; set; }
         public String Adres { get; set; }
         public String Ekbilgi { get; set; }
-        public Image fotograf { get; set; } // detaylı araştırma lazım ...
-
+        public Image fotograf { get; set; } 
+        public int Ulke { get; set; }
+        public int il { get; set; }
+        public int ilce { get; set; }
     }
 }

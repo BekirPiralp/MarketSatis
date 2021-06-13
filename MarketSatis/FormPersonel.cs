@@ -52,7 +52,7 @@ namespace MarketSatis
 
         private void profilDüzenleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormSifreDegistir formSifreDegistir = new FormSifreDegistir();
+            FormSifreDegistir formSifreDegistir = new FormSifreDegistir(temelVeri);
             formSifreDegistir.ShowDialog();
         }
 

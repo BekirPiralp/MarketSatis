@@ -60,13 +60,14 @@ namespace MarketSatis
             this.buttonTamam.Location = new System.Drawing.Point(131, 232);
             this.buttonTamam.Name = "buttonTamam";
             this.buttonTamam.Size = new System.Drawing.Size(75, 23);
-            this.buttonTamam.TabIndex = 2;
+            this.buttonTamam.TabIndex = 4;
             this.buttonTamam.Text = "Tamam";
             this.buttonTamam.UseVisualStyleBackColor = true;
             this.buttonTamam.Click += new System.EventHandler(this.buttonTamam_Click);
             // 
             // buttonIptal
             // 
+            this.buttonIptal.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonIptal.Location = new System.Drawing.Point(231, 232);
             this.buttonIptal.Name = "buttonIptal";
             this.buttonIptal.Size = new System.Drawing.Size(75, 23);
@@ -91,12 +92,14 @@ namespace MarketSatis
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(414, 119);
-            this.textBox1.TabIndex = 5;
+            this.textBox1.TabIndex = 2;
             // 
             // FormPersonelCikar
             // 
+            this.AcceptButton = this.buttonTamam;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.buttonIptal;
             this.ClientSize = new System.Drawing.Size(438, 262);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.labelAciklama);

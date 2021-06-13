@@ -34,7 +34,6 @@ namespace MarketSatis
             this.buttonGor = new System.Windows.Forms.Button();
             this.buttonIptal = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -50,7 +49,7 @@ namespace MarketSatis
             // textBoxTc
             // 
             this.textBoxTc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBoxTc.Location = new System.Drawing.Point(64, 29);
+            this.textBoxTc.Location = new System.Drawing.Point(58, 29);
             this.textBoxTc.Name = "textBoxTc";
             this.textBoxTc.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxTc.Size = new System.Drawing.Size(131, 20);
@@ -60,7 +59,7 @@ namespace MarketSatis
             // 
             // buttonGor
             // 
-            this.buttonGor.Location = new System.Drawing.Point(12, 64);
+            this.buttonGor.Location = new System.Drawing.Point(35, 67);
             this.buttonGor.Name = "buttonGor";
             this.buttonGor.Size = new System.Drawing.Size(75, 23);
             this.buttonGor.TabIndex = 2;
@@ -70,7 +69,7 @@ namespace MarketSatis
             // 
             // buttonIptal
             // 
-            this.buttonIptal.Location = new System.Drawing.Point(120, 64);
+            this.buttonIptal.Location = new System.Drawing.Point(143, 67);
             this.buttonIptal.Name = "buttonIptal";
             this.buttonIptal.Size = new System.Drawing.Size(75, 23);
             this.buttonIptal.TabIndex = 3;
@@ -86,30 +85,19 @@ namespace MarketSatis
             this.label2.TabIndex = 4;
             this.label2.Text = "Not: Görmek istedğiniz perosnelin TC\'sini giriniz.";
             // 
-            // listBox1
-            // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(278, 16);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(287, 212);
-            this.listBox1.TabIndex = 5;
-            // 
             // FormPersonelGoruntule
             // 
+            this.AcceptButton = this.buttonGor;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 242);
-            this.Controls.Add(this.listBox1);
+            this.CancelButton = this.buttonIptal;
+            this.ClientSize = new System.Drawing.Size(265, 156);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonIptal);
             this.Controls.Add(this.buttonGor);
             this.Controls.Add(this.textBoxTc);
             this.Controls.Add(this.label1);
-            this.MinimumSize = new System.Drawing.Size(593, 281);
+            this.MinimumSize = new System.Drawing.Size(281, 195);
             this.Name = "FormPersonelGoruntule";
             this.ShowIcon = false;
             this.Text = "Personel Görüntüle";
@@ -125,6 +113,5 @@ namespace MarketSatis
         private System.Windows.Forms.Button buttonGor;
         private System.Windows.Forms.Button buttonIptal;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox listBox1;
     }
 }

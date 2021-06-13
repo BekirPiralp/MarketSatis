@@ -55,6 +55,12 @@ namespace MarketSatis
             this.buttonGozat = new System.Windows.Forms.Button();
             this.openFileDialogResim = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxilçe = new System.Windows.Forms.ComboBox();
+            this.comboBoxil = new System.Windows.Forms.ComboBox();
+            this.comboBoxUlke = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -304,11 +310,68 @@ namespace MarketSatis
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(447, 169);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(24, 13);
+            this.label10.TabIndex = 45;
+            this.label10.Text = "İlçe";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(309, 169);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(12, 13);
+            this.label9.TabIndex = 46;
+            this.label9.Text = "İl";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(147, 169);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 13);
+            this.label5.TabIndex = 47;
+            this.label5.Text = "Ülke";
+            // 
+            // comboBoxilçe
+            // 
+            this.comboBoxilçe.FormattingEnabled = true;
+            this.comboBoxilçe.Location = new System.Drawing.Point(396, 185);
+            this.comboBoxilçe.Name = "comboBoxilçe";
+            this.comboBoxilçe.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxilçe.TabIndex = 42;
+            // 
+            // comboBoxil
+            // 
+            this.comboBoxil.FormattingEnabled = true;
+            this.comboBoxil.Location = new System.Drawing.Point(254, 185);
+            this.comboBoxil.Name = "comboBoxil";
+            this.comboBoxil.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxil.TabIndex = 43;
+            // 
+            // comboBoxUlke
+            // 
+            this.comboBoxUlke.FormattingEnabled = true;
+            this.comboBoxUlke.Location = new System.Drawing.Point(113, 185);
+            this.comboBoxUlke.Name = "comboBoxUlke";
+            this.comboBoxUlke.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxUlke.TabIndex = 44;
+            // 
             // FormPersonelGuncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(643, 428);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.comboBoxilçe);
+            this.Controls.Add(this.comboBoxil);
+            this.Controls.Add(this.comboBoxUlke);
             this.Controls.Add(this.buttonIptal);
             this.Controls.Add(this.buttonTamam);
             this.Controls.Add(this.checkBoxEkbilgi);
@@ -372,5 +435,11 @@ namespace MarketSatis
         private System.Windows.Forms.Button buttonIptal;
         private System.Windows.Forms.Button buttonGozat;
         private System.Windows.Forms.OpenFileDialog openFileDialogResim;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBoxilçe;
+        private System.Windows.Forms.ComboBox comboBoxil;
+        private System.Windows.Forms.ComboBox comboBoxUlke;
     }
 }

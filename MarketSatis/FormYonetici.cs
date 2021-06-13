@@ -30,6 +30,7 @@ namespace MarketSatis
         public FormYonetici(TemelVeri temelVeri)
         {
             this.temelVeri = temelVeri;
+            this.TC = temelVeri.Tc.Trim();
             InitializeComponent();
         }
         private void çıkışToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,6 +104,12 @@ namespace MarketSatis
         {
             FormSatis formSatis = new FormSatis(temelVeri);
             formSatis.ShowDialog();
+        }
+
+        private void şifreDeğiştirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSifreDegistir formSifreDegistir = new FormSifreDegistir(temelVeri);
+            formSifreDegistir.ShowDialog();
         }
     }
 }
