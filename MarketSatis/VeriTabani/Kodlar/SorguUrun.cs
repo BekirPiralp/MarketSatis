@@ -156,9 +156,11 @@ namespace MarketSatis.VeriTabani.Kodlar
 
         public bool Ekle(Urun ekle)
         {
+          
+
             String[] sutunlar = { sorguAd, sorguBarkod, sorguAdet, sorguMarka, sorguUrunAciklama, sorguUretimYeri, sorguFiyat, sorguIndirim, sorguResim };
             String[] degerler = {ekle.ad.Trim(),ekle.barkod.Trim(),ekle.adet.ToString(),ekle.marka,ekle.aciklama,ekle.uretimYeri,ekle.fiyat.ToString(),
-            ekle.indrim.ToString(),"@image"};
+            ekle.indrim.ToString(),"?"};
 
             MessageBox.Show(ekle.barkod);
             Urun kntrl = Getir(ekle.barkod.Trim());
@@ -166,23 +168,26 @@ namespace MarketSatis.VeriTabani.Kodlar
             {
                 if (ekle.barkod != "")
                 {
+                    
+
+
                     veriTabani.komutAl(komut:
-                        this.ekle(
+                        this.ekleSonResim(
                             tablo: tabloUrun,
                             sutunlar: sutunlar,
                             degerler: degerler
                             ));
-
+                    veriTabani.veriTabaniKomut.Parameters.AddWithValue("image", cevirImageByteArray(ekle.resim));
                     /*FileStream fs = new FileStream(ekle.resim_yolu, FileMode.Open, FileAccess.Read);
                     BinaryReader br = new BinaryReader(fs);
                     rsm = br.ReadBytes((int)fs.Length);
                     br.Close();
                     fs.Close();*/
-                    veriTabaniResimParmetreAl(
-                               veriTabani: veriTabani,
-                               image: ekle.resim,
-                               paremetreAdi: "@image"
-                               );
+                    //veriTabaniResimParmetreAl(
+                    //           veriTabani: veriTabani,
+                    //           image: ekle.resim,
+                    //           paremetreAdi: "@image"
+                    //           );
 
                     return veriTabani.sonucDondurmeyenSorguKomutIsle();
                     veriTabani.baglantiKes();

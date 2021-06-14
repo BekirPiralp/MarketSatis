@@ -344,6 +344,7 @@ namespace MarketSatis
             this.comboBoxilçe.Name = "comboBoxilçe";
             this.comboBoxilçe.Size = new System.Drawing.Size(121, 21);
             this.comboBoxilçe.TabIndex = 42;
+            this.comboBoxilçe.SelectedIndexChanged += new System.EventHandler(this.comboBoxilçe_SelectedIndexChanged);
             // 
             // comboBoxil
             // 
@@ -352,6 +353,7 @@ namespace MarketSatis
             this.comboBoxil.Name = "comboBoxil";
             this.comboBoxil.Size = new System.Drawing.Size(121, 21);
             this.comboBoxil.TabIndex = 43;
+            this.comboBoxil.SelectedIndexChanged += new System.EventHandler(this.comboBoxil_SelectedIndexChanged);
             // 
             // comboBoxUlke
             // 
@@ -360,6 +362,8 @@ namespace MarketSatis
             this.comboBoxUlke.Name = "comboBoxUlke";
             this.comboBoxUlke.Size = new System.Drawing.Size(121, 21);
             this.comboBoxUlke.TabIndex = 44;
+            this.comboBoxUlke.SelectedIndexChanged += new System.EventHandler(this.comboBoxUlke_SelectedIndexChanged);
+            this.comboBoxUlke.MouseHover += new System.EventHandler(this.comboBoxUlke_MouseHover);
             // 
             // FormPersonelGuncelle
             // 

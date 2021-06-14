@@ -389,8 +389,8 @@ namespace MarketSatis.VeriTabani.Kodlar
                         if(temelVeri.fotograf!= null)
                         {
                             String[] stn = { sorguPersonel, sorguFotograf };
-                            String[] dgr = { temelVeri.Id.ToString(),"@foto"};
-                            veriTabani.komutAl(komut: ekle(
+                            String[] dgr = { temelVeri.Id.ToString(),"?"};
+                            veriTabani.komutAl(komut: ekleSonResim(
                                 tablo: tabloFotograf,
                                 sutunlar: stn,
                                 degerler: dgr
@@ -399,7 +399,7 @@ namespace MarketSatis.VeriTabani.Kodlar
                             veriTabaniResimParmetreAl(
                                 veriTabani: veriTabani,
                                 image: temelVeri.fotograf,
-                                paremetreAdi:"@foto");
+                                paremetreAdi:"image");
                             veriTabani.sonucDondurmeyenSorguKomutIsle();
                         }
 
@@ -516,13 +516,13 @@ namespace MarketSatis.VeriTabani.Kodlar
                         komut: guncelle(
                                tablo: tabloEkBilgi,
                                sutunVeDegerleri:
-                               sorguFotograf + " = @image",
+                               sorguFotograf + " = ?",
                                sart: sorguPersonel + " = '" + ana.Id.ToString() + "'"
                                ));
                     veriTabaniResimParmetreAl(
                                    veriTabani: veriTabani,
                                    image: guncel.fotograf,
-                                   paremetreAdi: "@image");
+                                   paremetreAdi: "image");
                     veriTabani.sonucDondurmeyenSorguKomutIsle();
                 }
                 catch 
@@ -590,9 +590,10 @@ namespace MarketSatis.VeriTabani.Kodlar
             try
             {
                 veriTabani.baglan();
+                
                 byte[] foto = cevirImageByteArray(image);
                 //tring denemeson = System.Text.Encoding.UTF8.GetString(foto);
-                veriTabani.veriTabaniKomut.Parameters.AddWithValue(paremetreAdi,foto);
+                veriTabani.veriTabaniKomut.Parameters.Add(paremetreAdi,System.Data.OleDb.OleDbType.VarBinary,foto.Length).Value=foto;
                 //veriTabani.veriParametre.OleDbType = SqlDbType.Image;//(veriTabani.veriParametre);
             }
             catch
