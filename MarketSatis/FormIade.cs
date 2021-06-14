@@ -24,7 +24,7 @@ namespace MarketSatis
         Urun urun;
         Iade iade;
        
-        bool textBoxBarkodKntrl = false;
+       // bool textBoxBarkodKntrl = false;
 
         public FormIade()
         {

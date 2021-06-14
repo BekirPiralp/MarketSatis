@@ -221,7 +221,11 @@ namespace MarketSatis
                 }
                 else
                 {
-                    buttoniptal_Click(sender: sender, e: e);
+                    this.listBoxSatis.Items.Clear();
+                    this.labelToplamFiyat.Text = "0";
+                    this.labelFiyat.Text = "0";
+                    this.labelindirim.Text = "0";
+                    this.numericUpDownAdet.Value = 1;
                 }
             }
             else

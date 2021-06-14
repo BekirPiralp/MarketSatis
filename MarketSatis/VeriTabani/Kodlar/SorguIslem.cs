@@ -154,7 +154,7 @@ namespace MarketSatis.VeriTabani.Kodlar
         /// 
         public Image cevirByteArrayImage(byte[] rsm)
         {
-            MessageBox.Show(rsm[0] + "     " + rsm[0].ToString());
+            //MessageBox.Show(rsm[0] + "     " + rsm[0].ToString());
             MemoryStream ms = new MemoryStream(rsm);
             Image resim = Image.FromStream(ms);
             ms.Dispose();

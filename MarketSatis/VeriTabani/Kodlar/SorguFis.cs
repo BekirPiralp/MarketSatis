@@ -10,7 +10,7 @@ namespace MarketSatis.VeriTabani.Kodlar
     public class SorguFis :SorguIslem
     {
         DateTime dateTime = DateTime.Now;
-        DateTime dt = new DateTime();
+        //DateTime dt = new DateTime();
         DateTime aldt; //,fark;
         public SorguFis() : base()
         {
@@ -80,7 +80,7 @@ namespace MarketSatis.VeriTabani.Kodlar
                 Fis fis = new Fis();
                 //id
                 fis.id = veriTabani.tekAlanlikVeriDondurenSorguKomutlarIsle(sorgu(
-                            sutunlar: sorguId, tablo: tabloFis, sart: sorguKod + " = " + fisKod)).ToString() != "" ?
+                            sutunlar: sorguId, tablo: tabloFis, sart: sorguKod + " = " + fisKod + " order by " + tabloFis + "." + sorguId + " desc")).ToString() != "" ?
                             int.Parse(veriTabani.tekAlanlikVeriDondurenSorguKomutlarIsle(sorgu(
                             sutunlar: sorguId, tablo: tabloFis, sart: sorguKod + " = " + fisKod +" order by "+tabloFis+"."+sorguId +" desc")).ToString()) : -1;
                 /*Fiş kod kullanmadan personel id ilede aynı şekilde getirilebilirdi...*/

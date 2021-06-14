@@ -113,7 +113,7 @@ namespace MarketSatis.VeriTabani.Kodlar
                     )))
                     : global::MarketSatis.Properties.Resources.urun;
                 //adet
-                urun.id = veriTabani.tekAlanlikVeriDondurenSorguKomutlarIsle(
+                urun.adet = veriTabani.tekAlanlikVeriDondurenSorguKomutlarIsle(
                    sorguKomut: this.sorgu(
                        sutunlar: sorguAdet,
                        tablo: tabloUrun,
@@ -162,35 +162,33 @@ namespace MarketSatis.VeriTabani.Kodlar
             String[] degerler = {ekle.ad.Trim(),ekle.barkod.Trim(),ekle.adet.ToString(),ekle.marka,ekle.aciklama,ekle.uretimYeri,ekle.fiyat.ToString(),
             ekle.indrim.ToString(),"?"};
 
-            MessageBox.Show(ekle.barkod);
+            //MessageBox.Show(ekle.barkod);
             Urun kntrl = Getir(ekle.barkod.Trim());
             if (kntrl==null)//urun geliyorsa zaten sistemde ekli demektir ;D
             {
                 if (ekle.barkod != "")
                 {
                     
-
-
                     veriTabani.komutAl(komut:
                         this.ekleSonResim(
                             tablo: tabloUrun,
                             sutunlar: sutunlar,
                             degerler: degerler
                             ));
-                    veriTabani.veriTabaniKomut.Parameters.AddWithValue("image", cevirImageByteArray(ekle.resim));
+                    //veriTabani.veriTabaniKomut.Parameters.AddWithValue("image", cevirImageByteArray(ekle.resim));
                     /*FileStream fs = new FileStream(ekle.resim_yolu, FileMode.Open, FileAccess.Read);
                     BinaryReader br = new BinaryReader(fs);
                     rsm = br.ReadBytes((int)fs.Length);
                     br.Close();
                     fs.Close();*/
-                    //veriTabaniResimParmetreAl(
-                    //           veriTabani: veriTabani,
-                    //           image: ekle.resim,
-                    //           paremetreAdi: "@image"
-                    //           );
+                    veriTabaniResimParmetreAl(
+                               veriTabani: veriTabani,
+                               image: ekle.resim,
+                               paremetreAdi: "image"
+                               );
 
                     return veriTabani.sonucDondurmeyenSorguKomutIsle();
-                    veriTabani.baglantiKes();
+                    //veriTabani.baglantiKes();
                 }
             }
             return false;

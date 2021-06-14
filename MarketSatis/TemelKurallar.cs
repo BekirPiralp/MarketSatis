@@ -154,6 +154,7 @@ namespace MarketSatis
                     yeni.adet -= lists[i].satis.adet;
                     if (sorguSatis.Ekle(lists[i].satis) && sorguUrun.Guncelle(lists[i].urun, yeni))
                     {
+                        MessageBox.Show("İşlem başarıyla gerçekleşti");
                         return true;
                     }
 

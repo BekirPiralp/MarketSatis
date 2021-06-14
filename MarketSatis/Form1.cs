@@ -33,16 +33,20 @@ namespace MarketSatis
 
             if (!sorgu.baglan())
             {
-                MessageBox.Show("Veritabani Bağlantısı Sağlanamadı. \nLütfen bağlantıyı kontrol ediniz", "Hata",
+                DialogResult dialogResult=
+                MessageBox.Show("Veritabani Bağlantısı Sağlanamadı. \nLütfen bağlantıyı kontrol edinip tekrar deneyiniz.", "Hata",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Environment.Exit(0); /*this.Close(); Main bloğunda nesne hatası verdittirdiği ve kimi zamanda
+                program arka tarafta açık kaldığı için bu fonksiyonu kullandım*/
             }
             //kontrol amaçlı
-            else
-            {
-                MessageBox.Show("Veritabani Bağlantısı Sağlandı", "Evet",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                sorgu.baglantiKes();
-            }
+            //else
+            //{
+            //    MessageBox.Show("Veritabani Bağlantısı Sağlandı", "Evet",
+            //        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            //}
+            sorgu.baglantiKes();
         }
 
         ~Form1()

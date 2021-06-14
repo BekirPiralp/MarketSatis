@@ -40,6 +40,7 @@ namespace MarketSatis.VeriTabani.Kodlar
             {
                 baglantiKes();
             }
+            baglantiKes();
             return kntrl;
         }
 
@@ -53,7 +54,8 @@ namespace MarketSatis.VeriTabani.Kodlar
             }
             catch (Exception hata)
             {
-                MessageBox.Show(hata.ToString(), "Hata - Dikkat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                /*Bilerek açıklama satırı yaptım gerekli yerlerde kontroller var burası test amaçlı idi*/
+                //MessageBox.Show(hata.ToString(), "Hata - Dikkat", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -223,7 +225,26 @@ namespace MarketSatis.VeriTabani.Kodlar
             {
                 baglan();
                 String i = "";
-                obj = this.veriTabaniKomut.ExecuteScalar()!=null? this.veriTabaniKomut.ExecuteScalar(): i;
+                 obj = this.veriTabaniKomut.ExecuteScalar()!=null? this.veriTabaniKomut.ExecuteScalar(): i;
+
+                //try
+                //{
+                //    baglan();
+                //    this.veriTabaniOkuyucu = veriTabaniKomut.ExecuteReader();
+                //    if (veriTabaniOkuyucu.Read())
+                //    {
+                //        obj = veriTabaniOkuyucu[0];
+                //    }
+                //    else
+                //    {
+                //        return i;
+                //    }
+                //    return obj;
+                //}
+                //catch (Exception)
+                //{
+                //    return i;
+                //}
             }
             catch (NullReferenceException hata) 
             {
